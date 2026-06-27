@@ -41,13 +41,15 @@ def run(cmd, cwd=None):
 # ...code...
 # ```
 def parse_and_write_files(llm_output):
-    segments = re.split(r'FILE:\s*', llm_output)
+    # Split case-insensitively and handle markdown formatting around the FILE prefix
+    segments = re.split(r'(?i)(?:\*\*|###)?\s*FILE:\s*', llm_output)
     written = []
     for segment in segments[1:]:
         lines = segment.strip().split('\n')
         if not lines:
             continue
-        filepath = lines[0].strip().strip("*`# ").strip()
+        # Clean up filepath by stripping markdown symbols, spaces, and colons
+        filepath = lines[0].strip().strip("*`# :").strip()
         # Extract the first code block within this segment
         content_match = re.search(r'```(?:\w+)?\n(.*?)```', segment, re.DOTALL)
         if content_match:

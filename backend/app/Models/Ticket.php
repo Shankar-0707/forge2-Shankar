@@ -2,66 +2,46 @@
 
 namespace App\Models;
 
-use App\Enums\TicketPriority;
-use App\Enums\TicketStatus;
+use App\Services\SlaCalculator;
+use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Ticket extends Model
 {
+    use HasFactory;
+
+    public const PRIORITIES = ['low', 'medium', 'high', 'urgent'];
+
     protected $fillable = [
+        'organization_id',
+        'requester_id',
+        'assignee_id',
         'subject',
         'description',
         'status',
         'priority',
-        'requester_id',
-        'assignee_id',
-        'tags',
+        'response_at',
+        'resolved_at',
     ];
 
     protected $casts = [
-        'status' => TicketStatus::class,
-        'priority' => TicketPriority::class,
-        'tags' => 'array',
+        'response_at' => 'datetime',
+        'resolved_at' => 'datetime',
     ];
 
-    /*
-    |------------------------------------------------------------------
-    | Boot - Global Organization Scope & Auto-Assignment
-    |------------------------------------------------------------------
-    */
-
-    protected static function booted(): void
-    {
-        // Auto-set organization_id from authenticated user — never from request input
-        static::creating(function (self $ticket) {
-            if (auth()->check() && ! $ticket->organization_id) {
-                $ticket->organization_id = auth()->user()->organization_id;
-            }
-        });
-    }
-
-    /*
-    |------------------------------------------------------------------
-    | Scopes
-    |------------------------------------------------------------------
-    */
-
     /**
-     * Bypass the global organization scope (use sparingly).
+     * Runtime cache for the resolved SLA policy. Not persisted.
+     * Populated by SlaCalculator::policyFor().
+     *
+     * @var SlaPolicy|null
      */
-    public function scopeWithoutOrganization(Builder $query): Builder
-    {
-        return $query->withoutGlobalScope('organization');
-    }
+    public $_cachedSlaPolicy = null;
 
-    /*
-    |------------------------------------------------------------------
-    | Relationships
-    |------------------------------------------------------------------
-    */
+    // ---------- Relationships ----------
 
     public function organization(): BelongsTo
     {
@@ -78,18 +58,92 @@ class Ticket extends Model
         return $this->belongsTo(User::class, 'assignee_id');
     }
 
-    public function comments(): HasMany
+    // ---------- Scopes ----------
+
+    public function scopeForOrg(Builder $query, int $organizationId): Builder
     {
-        return $this->hasMany(Comment::class)->orderBy('created_at');
+        return $query->where('organization_id', $organizationId);
     }
 
-    public function publicComments(): HasMany
+    // ---------- SLA accessors ----------
+
+    protected function slaCalculator(): SlaCalculator
     {
-        return $this->hasMany(Comment::class)->where('is_internal', false)->orderBy('created_at');
+        return app(SlaCalculator::class);
     }
 
-    public function internalComments(): HasMany
+    /**
+     * Response SLA deadline = created_at + response_minutes(priority).
+     */
+    public function getResponseDueAtAttribute(): ?Carbon
     {
-        return $this->hasMany(Comment::class)->where('is_internal', true)->orderBy('created_at');
+        return $this->slaCalculator()->responseDueAt($this);
     }
+
+    /**
+     * Resolution SLA deadline = created_at + resolution_minutes(priority).
+     */
+    public function getResolutionDueAtAttribute(): ?Carbon
+    {
+        return $this->slaCalculator()->resolutionDueAt($this);
+    }
+
+    /**
+     * Headline SLA clock: minutes remaining until resolution SLA breach.
+     * Negative => already breached. null => no SLA policy applies.
+     */
+    public function getTimeRemainingAttribute(): ?int
+    {
+        return $this->slaCalculator()->resolutionTimeRemaining($this);
+    }
+
+    /**
+     * Convenience: minutes remaining until response SLA breach.
+     */
+    public function getResponseTimeRemainingAttribute(): ?int
+    {
+        return $this->slaCalculator()->responseTimeRemaining($this);
+    }
+
+    /**
+     * Whether the resolution SLA has been breached.
+     */
+    public function getIsSlaBreachedAttribute(): bool
+    {
+        return $this->slaCalculator()->isResolutionBreached($this);
+    }
+
+    /**
+     * Whether the response SLA has been breached.
+     */
+    public function getIsResponseBreachedAttribute(): bool
+    {
+        return $this->slaCalculator()->isResponseBreached($this);
+    }
+
+    /**
+     * Normalized priority for safe arithmetic (never null/invalid).
+     */
+    public function getNormalizedPriorityAttribute(): string
+    {
+        return SlaPolicy::normalizePriority($this->priority);
+    }
+
+    /**
+     * Allow injection of a fixed "now" for testing accessors deterministically.
+     * Usage: $ticket->setTestNow(Carbon::parse('...')).
+     */
+    public function setTestNow(?CarbonInterface $now): static
+    {
+        $this->_testNow = $now;
+
+        return $this;
+    }
+
+    public function getTestNow(): ?CarbonInterface
+    {
+        return $this->_testNow ?? null;
+    }
+
+    private ?CarbonInterface $_testNow = null;
 }
