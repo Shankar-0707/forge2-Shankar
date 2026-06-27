@@ -65,7 +65,7 @@ function describeActivity(activity) {
     case "tag_added":
       return <><strong>{who}</strong> added tag <span className="font-medium text-gray-700">{metadata?.tag}</span></>;
     case "tag_removed":
-      return <><strong>{who}</strong> removed tag <span className="font-medium text-gray-700">{metadata?.tag}</span></;
+      return <><strong>{who}</strong> removed tag <span className="font-medium text-gray-700">{metadata?.tag}</span></>;
     case "closed":
       return <><strong>{who}</strong> closed this ticket</>;
     case "reopened":

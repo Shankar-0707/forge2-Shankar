@@ -11,7 +11,8 @@ return new class extends Migration
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
+            $table->integer('sla_response_minutes')->default(240);
             $table->timestamps();
         });
     }
