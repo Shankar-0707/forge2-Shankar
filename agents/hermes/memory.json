@@ -1,53 +1,59 @@
 {
-  "sprint_goal": "*ask #1 \u2014 assigned to OpenClaw*\n\n*What to build:* Organization &amp; User Models with Migrations\n\n*Details:* Create Organization and User models, migrations, and relationships. Organization is the tenant root; User belongs to Organization. Add unique constraints on organization slug and user email per tenant. Include hasMany / belongsTo relations and fillable casts.\n\n*Files to touch:* app/Models/Organization.php, app/Models/User.php, database/migrations/2024_01_01_000001_create_organizations_table.php, database/migrations/2024_01_01_000002_create_users_table.php, database/factories/OrganizationFactory.php, database/factories/UserFactory.php\n\nWhen done, post to <#C0BDKRX9EM8> and include the word DONE.\n[1:39 PM] :clipboard: *Task #2 \u2014 assigned to OpenClaw*\n\n*What to build:* Auth API Endpoints (Register, Login, Logout)\n\n*Details:* Implement Sanctum-based auth controllers for register, login, logout. Registration creates Organization + User together. Issue plain-text token via Sanctum. Add routes under api/v1 and request validation classes.\n\n*Files to touch:* app/Http/Controllers/Api/V1/Auth/RegisterController.php, app/Http/Controllers/Api/V1/Auth/LoginController.php, app/Http/Controllers/Api/V1/Auth/LogoutController.php, app/Http/Requests/Auth/RegisterRequest.php, app/Http/Requests/Auth/LoginRequest.php, routes/api.php, config/sanctum.php\n\nWhen done, post to <#C0BDKRX9EM8> and include the word DONE.\n[1:40 PM] :clipboard: *Task #3 \u2014 assigned to OpenClaw*\n\n*What to build:* EnsureSameTenant Middleware\n\n*Details:* Create middleware that resolves the tenant from the authenticated user and guards against cross-tenant data access on tenant-scoped resources. Register it in Kernel and apply to tenant-scoped route group.\n\n*Files to touch:* app/Http/Middleware/EnsureSameTenant.php, app/Http/Kernel.php, app/Providers/RouteServiceProvider.php\n\nWhen done, post to <#C0BDKRX9EM8> and include the word DONE.\n[1:44 PM] :clipboard: *Task #4 \u2014 assigned to OpenClaw*\n\n*What to build:* API Controllers\n\n*Details:* Create RESTful controllers with CRUD methods for core resources\n\n*Files to touch:* app/Http/Controllers/OrganizationController.php, app/Http/Controllers/UserController.php, app/Http/Controllers/ProjectController.php\n\nWhen done, post to <#C0BDKRX9EM8> and include the word DONE.\n\n*Hermes*  [2:01 PM]\n:clipboard: *Task #4 \u2014 assigned to OpenClaw*\n\n*What to build:* API Endpoint Implementation\n\n*Details:* Continue from Task 3 - implement RESTful API endpoints for CRUD operations\n\n*Files to touch:* app/Http/Controllers/ApiController.php, routes/api.php\n\nWhen done, post to <#C0BDKRX9EM8> and include the word DONE.\n\n These are the taskk\ndelegarte them froomtaskk 3 to openclaw till project execution",
+  "sprint_goal": "Plan and start Sprint 2: Core Tickets CRUD, Conversation Threads, and Seeded Demo Data.\n\nBreak this sprint down into issues for:\n1. Ticket Model &amp; Migration: Create Ticket model with organization_id, subject, description, status (open, pending, resolved, closed), priority (low, medium, high, urgent), requester_id (user), assignee_id (user), and tags. Ensure organization_id is automatically scoped.\n2. Comment Model &amp; Migration: Create Comment model for threaded replies on tickets. Must include ticket_id, user_id, body, and is_internal (boolean for agent-only notes).\n3. Tickets API Controller: Implement CRUD routes. Index must be filterable by status, priority, and assignee_id, with basic text search on subject/description. Ensure cross-tenant data leak checks are strictly enforced.\n4. Comments API Controller: Implement endpoints to view ticket replies and post a reply (public) or internal note (is_internal = true, restricted to admins/agents).\n5. Database Seeder: Create a DatabaseSeeder that populates 1 organization, 1 Admin, 2 Agents, 2 Customers, and exactly 12 tickets with a mix of statuses, priorities, assignees, and threaded replies (some public, some internal).\n6. Integration Tests: Write Pest/PHPUnit feature tests verifying ticket CRUD, comment postings, and testing that Customer roles cannot see internal notes.",
   "tasks": [
     {
       "id": 1,
-      "title": "EnsureSameTenant Middleware",
-      "description": "Create middleware resolving tenant from authenticated user, block cross-tenant access, register in Kernel and RouteServiceProvider",
+      "title": "Ticket & Comment Models with Migrations",
+      "description": "Create Ticket model (organization_id auto-scoped, subject, description, status enum, priority enum, requester_id, assignee_id, tags) and Comment model (ticket_id, user_id, body, is_internal). Include relationships, fillable arrays, casts, and global organization scope on Ticket.",
       "files": [
-        "app/Http/Middleware/EnsureSameTenant.php",
-        "app/Http/Kernel.php",
-        "app/Providers/RouteServiceProvider.php"
+        "app/Models/Ticket.php",
+        "app/Models/Comment.php",
+        "database/migrations/2024_01_01_000010_create_tickets_table.php",
+        "database/migrations/2024_01_01_000011_create_comments_table.php",
+        "app/Providers/AppServiceProvider.php"
       ]
     },
     {
       "id": 2,
-      "title": "Tenant-Scoped API Base Controller & Routes",
-      "description": "Create base ApiController with tenant-scoping traits and wire up protected route group with middleware applied",
+      "title": "Tickets API Controller with Filtering & Search",
+      "description": "Implement CRUD endpoints for tickets. Index must support filtering by status, priority, and assignee_id, plus text search on subject/description. Enforce strict organization scoping to prevent cross-tenant data leaks. Include Form Requests for validation.",
       "files": [
-        "app/Http/Controllers/ApiController.php",
+        "app/Http/Controllers/Api/TicketController.php",
+        "app/Http/Requests/StoreTicketRequest.php",
+        "app/Http/Requests/UpdateTicketRequest.php",
         "routes/api.php"
       ]
     },
     {
       "id": 3,
-      "title": "Organization & User CRUD Controllers",
-      "description": "Implement OrganizationController and UserController with index/show/update/destroy, enforcing tenant isolation",
+      "title": "Comments API Controller with Role-Based Visibility",
+      "description": "Implement endpoints to list ticket comments and post replies. Public replies open to all; internal notes (is_internal=true) restricted to admins/agents only. Customers must be excluded from viewing internal notes via query scope and response filtering.",
       "files": [
-        "app/Http/Controllers/OrganizationController.php",
-        "app/Http/Controllers/UserController.php"
-      ]
-    },
-    {
-      "id": 4,
-      "title": "Project CRUD Controller & Resource Routes",
-      "description": "Implement ProjectController with full CRUD, register resource routes under tenant-scoped group",
-      "files": [
-        "app/Http/Controllers/ProjectController.php",
+        "app/Http/Controllers/Api/CommentController.php",
+        "app/Http/Requests/StoreCommentRequest.php",
         "routes/api.php"
       ]
     },
     {
-      "id": 5,
-      "title": "Integration Tests & Execution Verification",
-      "description": "Write feature tests covering auth flow, tenant isolation, and CRUD endpoints; verify full pipeline end-to-end",
+      "id": 4,
+      "title": "Database Seeder with Demo Data",
+      "description": "Create DatabaseSeeder seeding 1 organization, 1 Admin, 2 Agents, 2 Customers, and exactly 12 tickets with mixed statuses/priorities/assignees plus threaded replies (some public, some internal). Use factories where appropriate.",
       "files": [
-        "tests/Feature/AuthTest.php",
-        "tests/Feature/TenantIsolationTest.php",
-        "tests/Feature/ProjectCrudTest.php"
+        "database/seeders/DatabaseSeeder.php",
+        "database/factories/TicketFactory.php",
+        "database/factories/CommentFactory.php"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Integration Tests for Tickets, Comments & Permissions",
+      "description": "Write Pest feature tests covering ticket CRUD, comment posting (public + internal), customer inability to view internal notes, and cross-tenant access prevention. Verify filtering and search behavior on ticket index.",
+      "files": [
+        "tests/Feature/TicketCrudTest.php",
+        "tests/Feature/CommentTest.php",
+        "tests/Feature/TenantIsolationTest.php"
       ]
     }
   ],
-  "current_task_index": 4
+  "current_task_index": 0
 }
