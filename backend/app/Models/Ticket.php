@@ -2,148 +2,106 @@
 
 namespace App\Models;
 
-use App\Services\SlaCalculator;
-use Carbon\Carbon;
-use Carbon\CarbonInterface;
+use App\Events\TicketAssigned;
+use App\Events\TicketCreated;
+use App\Events\TicketStatusChanged;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Auth;
 
 class Ticket extends Model
 {
     use HasFactory;
 
-    public const PRIORITIES = ['low', 'medium', 'high', 'urgent'];
+    public const STATUS_OPEN        = 'open';
+    public const STATUS_IN_PROGRESS = 'in_progress';
+    public const STATUS_RESOLVED    = 'resolved';
+    public const STATUS_CLOSED      = 'closed';
 
     protected $fillable = [
         'organization_id',
-        'requester_id',
-        'assignee_id',
-        'subject',
+        'title',
         'description',
         'status',
         'priority',
-        'response_at',
-        'resolved_at',
+        'assigned_to',
+        'created_by',
     ];
 
-    protected $casts = [
-        'response_at' => 'datetime',
-        'resolved_at' => 'datetime',
-    ];
+    /*
+    |--------------------------------------------------------------------------
+    | Model lifecycle — dispatch activity events
+    |--------------------------------------------------------------------------
+    */
 
-    /**
-     * Runtime cache for the resolved SLA policy. Not persisted.
-     * Populated by SlaCalculator::policyFor().
-     *
-     * @var SlaPolicy|null
-     */
-    public $_cachedSlaPolicy = null;
+    protected static function booted(): void
+    {
+        static::created(function (Ticket $ticket) {
+            TicketCreated::dispatch($ticket, Auth::user());
+        });
 
-    // ---------- Relationships ----------
+        static::updated(function (Ticket $ticket) {
+            if ($ticket->wasChanged('status')) {
+                TicketStatusChanged::dispatch(
+                    $ticket,
+                    Auth::user(),
+                    $ticket->getOriginal('status'),
+                    $ticket->status,
+                );
+            }
+
+            if ($ticket->wasChanged('assigned_to')) {
+                TicketAssigned::dispatch(
+                    $ticket,
+                    Auth::user(),
+                    $ticket->getOriginal('assigned_to')
+                        ? (int) $ticket->getOriginal('assigned_to')
+                        : null,
+                    $ticket->assigned_to
+                        ? (int) $ticket->assigned_to
+                        : null,
+                );
+            }
+        });
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Relationships
+    |--------------------------------------------------------------------------
+    */
 
     public function organization(): BelongsTo
     {
         return $this->belongsTo(Organization::class);
     }
 
-    public function requester(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'requester_id');
-    }
-
     public function assignee(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'assignee_id');
+        return $this->belongsTo(User::class, 'assigned_to');
     }
 
-    // ---------- Scopes ----------
+    public function creator(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
 
-    public function scopeForOrg(Builder $query, int $organizationId): Builder
+    public function activityLogs(): HasMany
+    {
+        return $this->hasMany(ActivityLog::class)->latest();
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Scopes
+    |--------------------------------------------------------------------------
+    */
+
+    public function scopeForOrganization(Builder $query, int $organizationId): Builder
     {
         return $query->where('organization_id', $organizationId);
     }
-
-    // ---------- SLA accessors ----------
-
-    protected function slaCalculator(): SlaCalculator
-    {
-        return app(SlaCalculator::class);
-    }
-
-    /**
-     * Response SLA deadline = created_at + response_minutes(priority).
-     */
-    public function getResponseDueAtAttribute(): ?Carbon
-    {
-        return $this->slaCalculator()->responseDueAt($this);
-    }
-
-    /**
-     * Resolution SLA deadline = created_at + resolution_minutes(priority).
-     */
-    public function getResolutionDueAtAttribute(): ?Carbon
-    {
-        return $this->slaCalculator()->resolutionDueAt($this);
-    }
-
-    /**
-     * Headline SLA clock: minutes remaining until resolution SLA breach.
-     * Negative => already breached. null => no SLA policy applies.
-     */
-    public function getTimeRemainingAttribute(): ?int
-    {
-        return $this->slaCalculator()->resolutionTimeRemaining($this);
-    }
-
-    /**
-     * Convenience: minutes remaining until response SLA breach.
-     */
-    public function getResponseTimeRemainingAttribute(): ?int
-    {
-        return $this->slaCalculator()->responseTimeRemaining($this);
-    }
-
-    /**
-     * Whether the resolution SLA has been breached.
-     */
-    public function getIsSlaBreachedAttribute(): bool
-    {
-        return $this->slaCalculator()->isResolutionBreached($this);
-    }
-
-    /**
-     * Whether the response SLA has been breached.
-     */
-    public function getIsResponseBreachedAttribute(): bool
-    {
-        return $this->slaCalculator()->isResponseBreached($this);
-    }
-
-    /**
-     * Normalized priority for safe arithmetic (never null/invalid).
-     */
-    public function getNormalizedPriorityAttribute(): string
-    {
-        return SlaPolicy::normalizePriority($this->priority);
-    }
-
-    /**
-     * Allow injection of a fixed "now" for testing accessors deterministically.
-     * Usage: $ticket->setTestNow(Carbon::parse('...')).
-     */
-    public function setTestNow(?CarbonInterface $now): static
-    {
-        $this->_testNow = $now;
-
-        return $this;
-    }
-
-    public function getTestNow(): ?CarbonInterface
-    {
-        return $this->_testNow ?? null;
-    }
-
-    private ?CarbonInterface $_testNow = null;
 }
