@@ -17,6 +17,7 @@ class TicketFactory extends Factory
             'organization_id' => $org->id,
             'created_by' => User::factory()->for($org),
             'assigned_to' => null,
+            'ticket_number' => 'TICK-' . fake()->unique()->numberBetween(1000, 9999),
             'title' => fake()->sentence(),
             'description' => fake()->paragraph(),
             'status' => fake()->randomElement([
@@ -37,11 +38,15 @@ class TicketFactory extends Factory
         ];
     }
 
-    public function for(Organization $org): static
+    public function for($factory, $relationship = null): static
     {
-        return $this->state(fn (array $attributes) => [
-            'organization_id' => $org->id,
-            'created_by' => User::factory()->for($org),
-        ]);
+        if ($factory instanceof Organization) {
+            return $this->state(fn (array $attributes) => [
+                'organization_id' => $factory->id,
+                'created_by' => User::factory()->for($factory),
+            ]);
+        }
+
+        return parent::for($factory, $relationship);
     }
 }

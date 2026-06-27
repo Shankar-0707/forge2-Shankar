@@ -1,4 +1,5 @@
-const BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const rawUrl = import.meta.env.VITE_API_URL || '';
+const BASE_URL = rawUrl.endsWith('/api') ? rawUrl : `${rawUrl.replace(/\/$/, '')}/api`;
 
 function buildQueryString(params = {}) {
   const entries = Object.entries(params).filter(
@@ -11,7 +12,7 @@ function buildQueryString(params = {}) {
 }
 
 async function request(path, options = {}) {
-  const token = localStorage.getItem('auth_token');
+  const token = localStorage.getItem('pulsedesk_token');
 
   const response = await fetch(`${BASE_URL}${path}`, {
     credentials: 'include',
@@ -25,7 +26,8 @@ async function request(path, options = {}) {
   });
 
   if (response.status === 401) {
-    localStorage.removeItem('auth_token');
+    localStorage.removeItem('pulsedesk_token');
+    localStorage.removeItem('pulsedesk_user');
     window.location.href = '/login';
     throw new Error('Unauthorized');
   }

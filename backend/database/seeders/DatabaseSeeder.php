@@ -57,8 +57,8 @@ class DatabaseSeeder extends Seeder
 
             $ticket = Ticket::factory()->create([
                 'organization_id' => $org->id,
-                'customer_id'     => $customers->random()->id,
-                'assignee_id'     => $assignees->random()->id,
+                'created_by'      => $customers->random()->id,
+                'assigned_to'     => $assignees->random()->id,
                 'status'          => $status,
                 'priority'        => $priority,
             ]);
@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
     {
         Comment::factory()->public()->create([
             'ticket_id' => $ticket->id,
-            'user_id'   => $ticket->customer_id,
+            'user_id'   => $ticket->created_by,
         ]);
 
         Comment::factory()->public()->create([

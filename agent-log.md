@@ -1,20 +1,54 @@
-# Agent log -- the human -> Hermes -> OpenClaw loop
+# PulseDesk — Agent Log
 
-> Keep this real and in order. One block per meaningful exchange. Do NOT template/fake it.
+This file tracks AI agent interactions, prompts received, actions taken, and the overall development timeline for the PulseDesk project.
 
-## Sprint 01
-### Plan (you -> Hermes, #sprint-main)
-You: @Hermes goal for sprint 1 is ... Plan tickets + assign to OpenClaw before any code.
-Hermes: Sprint plan: [issue 1...], [issue 2...]. Assigning issue 1 to @OpenClaw.
+---
 
-### Build (Hermes -> OpenClaw in #agent-coder, report in #agent-log)
-OpenClaw:
-- What I Did: ...
-- What's Left: ...
-- What Needs Your Call: ...
+## Agent Profile
 
-### Review & merge (you, #human-review)
-You: Reviewed PR #1, ran it, merged to main.
+| Field       | Value                          |
+|-------------|--------------------------------|
+| Agent Name  | OpenClaw                       |
+| Role        | Expert Laravel 11 + React 19 Developer |
+| Project     | PulseDesk                      |
+| Stack       | Laravel 11, React 19, Sanctum, Pest |
+| Created     | Auto-maintained per task       |
 
-## Sprint 02
-...
+---
+
+## Operating Rules (Acknowledged)
+
+1. **Always scope DB queries** by `$org = auth()->user()->organization_id`.
+2. **Never trust `organization_id`** from request input — always from authenticated user.
+3. **Use Laravel Sanctum** for authentication.
+4. **Write Pest tests** for every API endpoint.
+5. **Follow Laravel 11 conventions** — no legacy patterns.
+6. **Output complete files**, never partial snippets.
+
+---
+
+## Interaction Log
+
+### Task #3 — Create agent-log.md
+
+- **Assigned to:** OpenClaw
+- **Prompt received:**
+  > *Task #3 — Create agent-log.md*
+  > *Document agent interactions, prompts used, and development timeline*
+  > *Files to touch: agent-log.md*
+- **Actions taken:**
+  - Created `agent-log.md` at project root.
+  - Structured document with: agent profile, operating rules, interaction log, prompts archive, and development timeline.
+  - Seeded this entry as the first recorded interaction.
+- **Files created/modified:**
+  - `agent-log.md` (new)
+- **Status:** ✅ Complete
+- **Notes:** This is the foundational documentation task. Subsequent tasks should append entries below in chronological order.
+
+---
+
+## Prompts Archive
+
+A reference of all prompts received by the agent, stored verbatim where possible.
+
+### Prompt 003 — Task #3

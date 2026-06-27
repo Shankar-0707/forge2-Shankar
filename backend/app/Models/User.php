@@ -69,4 +69,9 @@ class User extends Authenticatable
     {
         return in_array($this->role, [self::ROLE_ADMIN, self::ROLE_AGENT]);
     }
+
+    public function isStaff(): bool
+    {
+        return $this->canManageTickets();
+    }
 }
