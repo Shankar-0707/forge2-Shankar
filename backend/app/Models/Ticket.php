@@ -2,68 +2,47 @@
 
 namespace App\Models;
 
-use App\Events\TicketAssigned;
-use App\Events\TicketCreated;
-use App\Events\TicketStatusChanged;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
 class Ticket extends Model
 {
-    use HasFactory;
-
-    public const STATUS_OPEN        = 'open';
-    public const STATUS_IN_PROGRESS = 'in_progress';
-    public const STATUS_RESOLVED    = 'resolved';
-    public const STATUS_CLOSED      = 'closed';
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'organization_id',
-        'title',
+        'agent_id',
+        'subject',
         'description',
         'status',
         'priority',
-        'assigned_to',
-        'created_by',
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     /*
     |--------------------------------------------------------------------------
-    | Model lifecycle — dispatch activity events
+    | Boot — Global Organization Scope
     |--------------------------------------------------------------------------
     */
-
     protected static function booted(): void
     {
-        static::created(function (Ticket $ticket) {
-            TicketCreated::dispatch($ticket, Auth::user());
+        static::addGlobalScope('organization', function (Builder $builder) {
+            if (Auth::check()) {
+                $builder->where('tickets.organization_id', Auth::user()->organization_id);
+            }
         });
 
-        static::updated(function (Ticket $ticket) {
-            if ($ticket->wasChanged('status')) {
-                TicketStatusChanged::dispatch(
-                    $ticket,
-                    Auth::user(),
-                    $ticket->getOriginal('status'),
-                    $ticket->status,
-                );
-            }
-
-            if ($ticket->wasChanged('assigned_to')) {
-                TicketAssigned::dispatch(
-                    $ticket,
-                    Auth::user(),
-                    $ticket->getOriginal('assigned_to')
-                        ? (int) $ticket->getOriginal('assigned_to')
-                        : null,
-                    $ticket->assigned_to
-                        ? (int) $ticket->assigned_to
-                        : null,
-                );
+        static::creating(function (Ticket $ticket) {
+            if (Auth::check() && ! $ticket->organization_id) {
+                $ticket->organization_id = Auth::user()->organization_id;
             }
         });
     }
@@ -73,35 +52,60 @@ class Ticket extends Model
     | Relationships
     |--------------------------------------------------------------------------
     */
-
     public function organization(): BelongsTo
     {
         return $this->belongsTo(Organization::class);
     }
 
-    public function assignee(): BelongsTo
+    public function agent(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'assigned_to');
-    }
-
-    public function creator(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'created_by');
-    }
-
-    public function activityLogs(): HasMany
-    {
-        return $this->hasMany(ActivityLog::class)->latest();
+        return $this->belongsTo(User::class, 'agent_id');
     }
 
     /*
     |--------------------------------------------------------------------------
-    | Scopes
+    | Query Scopes / Filters
     |--------------------------------------------------------------------------
     */
-
-    public function scopeForOrganization(Builder $query, int $organizationId): Builder
+    public function scopeAssignedTo(Builder $query, int $userId): Builder
     {
-        return $query->where('organization_id', $organizationId);
+        return $query->where('agent_id', $userId);
+    }
+
+    public function scopeMyTickets(Builder $query, ?int $userId = null): Builder
+    {
+        $userId ??= Auth::id();
+
+        return $query->where('agent_id', $userId);
+    }
+
+    public function scopeUnassigned(Builder $query): Builder
+    {
+        return $query->whereNull('agent_id');
+    }
+
+    public function scopeAssigned(Builder $query): Builder
+    {
+        return $query->whereNotNull('agent_id');
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Helpers
+    |--------------------------------------------------------------------------
+    */
+    public function isAssigned(): bool
+    {
+        return $this->agent_id !== null;
+    }
+
+    public function isAssignedTo(User $user): bool
+    {
+        return $this->agent_id === $user->id;
+    }
+
+    public function isUnassigned(): bool
+    {
+        return $this->agent_id === null;
     }
 }
