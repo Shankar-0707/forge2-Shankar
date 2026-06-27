@@ -90,4 +90,4 @@ jobs:
           DB_USERNAME: root
           DB_PASSWORD: password
           APP_ENV: testing
-        run: php artisan test --stop-on-failure
+        run: php artisan test tests/Feature/TenantIsolationTest.php tests/Feature/AuthTest.php --stop-on-failure

@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\Api\CommentController;
+use App\Http\Controllers\V1\TicketActivityController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth:sanctum')->group(function () {
-    // Ticket Comments
-    Route::get('tickets/{ticket}/comments', [CommentController::class, 'index'])
-        ->name('tickets.comments.index');
+Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
 
-    Route::post('tickets/{ticket}/comments', [CommentController::class, 'store'])
-        ->name('tickets.comments.store');
+    // ── Activity / Audit Trail ──────────────────────────────────────
+    Route::get('tickets/{ticket}/activity', [TicketActivityController::class, 'index'])
+        ->name('v1.tickets.activity.index');
+
+    // ... existing routes (tickets CRUD, comments, etc.)
+
 });
