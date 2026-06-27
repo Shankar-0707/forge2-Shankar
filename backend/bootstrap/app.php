@@ -12,14 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->statefulApi();
-
-        $middleware->alias([
-            'tenant' => \App\Http\Middleware\EnsureSameTenant::class,
-        ]);
-
-        // Optionally pin the guard to every authenticated API request.
-        // Kept explicit on route groups so public endpoints stay open.
+        //
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

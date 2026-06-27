@@ -9,11 +9,11 @@ class OrganizationFactory extends Factory
 {
     public function definition(): array
     {
-        $name = $this->faker->company();
+        $name = fake()->company();
 
         return [
             'name' => $name,
-            'slug' => Str::slug($name) . '-' . Str::lower(Str::random(6)),
+            'slug' => Str::slug($name) . '-' . fake()->randomNumber(4),
         ];
     }
 }
