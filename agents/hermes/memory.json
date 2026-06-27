@@ -1,74 +1,47 @@
 {
-  "sprint_goal": "Plan and start Sprint 3: SLA Policies, Queues &amp; Assignment, Activity Log, and Dashboard Metrics.\n\nBreak this sprint down into issues for:\n1. SLA Policies &amp; Timers: Implement the SlaPolicy model and migration with response_time_limit (minutes) and resolution_time_limit (minutes) mapped per priority (low, medium, high, urgent). Add calculated fields on the Ticket model or responses indicating \"time remaining\" or \"SLA breached\" for response and resolution targets.\n2. Activity Log / Audit Trail: Implement the ActivityLog model and migration to track ticket lifecycle events. Log ticket creation, assignment changes, status changes, and new comment additions, storing the actor_id, event type, and timestamps.\n3. Queues &amp; Assignment: Implement queues and ticket assignment endpoints under the api/v1 route group. This should include:\n   - Reassigning a ticket to another agent.\n   - Claiming an unassigned ticket (self-assignment).\n   - Dynamic scopes/filters for \"My tickets\" and \"Unassigned tickets\".\n4. Dashboard Metrics API: Create an endpoint `/api/v1/dashboard/metrics` that returns:\n   - Ticket counts grouped by status and priority.\n   - Average first-response time.\n   - SLA breach rate (percentage of breached tickets).\n   - Daily ticket creation volume.\n5. Integration Tests: Write Pest/PHPUnit feature tests verifying SLA calculations (breached/remaining), activity logging on status change, ticket claims, and the dashboard metrics output.",
+  "sprint_goal": "*What to build:* Integration Tests - Sprint 3\n\n*Details:* Write Pest/PHPUnit feature tests verifying: SLA calculations (breached and time-remaining fields), activity log creation on status change and assignment, ticket claim/assignment flow with authorization, filtered index for my_tickets and unassigned, and dashboard metrics endpoint output shape and values.\n\n*Files to touch:* tests/Feature/V1/SlaPolicyTest.php, tests/Feature/V1/ActivityLogTest.php, tests/Feature/V1/TicketAssignmentTest.php, tests/Feature/V1/DashboardMetricsTest.php, database/factories/SlaPolicyFactory.php, database/factories/ActivityLogFactory.php\n\nWhen done, post to <#C0BDKRX9EM8> and include the word DONE.\n\ndelearrte these task t openclaw and all test after this of srprint 3",
   "tasks": [
     {
       "id": 1,
-      "title": "SLA Policies & Timers",
-      "description": "Create SlaPolicy model and migration with response_time_limit and resolution_time_limit (minutes) mapped per priority (low, medium, high, urgent). Seed default SLA policies per priority. Add accessor/computed fields on Ticket (or API responses) for response_time_remaining, resolution_time_remaining, response_sla_breached, and resolution_sla_breached based on ticket created_at and SLA limits. Include relationships and a helper to resolve the applicable policy by priority.",
+      "title": "Create Test Factories",
+      "description": "Create factories for SlaPolicy and ActivityLog to support integration tests.",
       "files": [
-        "app/Models/SlaPolicy.php",
-        "database/migrations/xxxx_create_sla_policies_table.php",
-        "database/seeders/SlaPolicySeeder.php",
-        "app/Models/Ticket.php",
-        "app/Traits/CalculatesSla.php",
-        "app/Http/Resources/V1/TicketResource.php"
+        "database/factories/SlaPolicyFactory.php",
+        "database/factories/ActivityLogFactory.php"
       ]
     },
     {
       "id": 2,
-      "title": "Activity Log / Audit Trail",
-      "description": "Create ActivityLog model and migration tracking ticket lifecycle events. Columns: ticket_id, actor_id (nullable for system), event (string: created, assigned, status_changed, commented), metadata (json), timestamps. Dispatch/listen for events on ticket creation, assignment changes, status changes, and comment creation to persist ActivityLog records. Add relationship on Ticket and expose activity via ticket endpoint.",
+      "title": "SLA Calculation Tests",
+      "description": "Write feature tests verifying SLA calculations, specifically checking breached status and time-remaining fields.",
       "files": [
-        "app/Models/ActivityLog.php",
-        "database/migrations/xxxx_create_activity_logs_table.php",
-        "app/Events/TicketCreated.php",
-        "app/Events/TicketStatusChanged.php",
-        "app/Events/TicketAssigned.php",
-        "app/Events/CommentAdded.php",
-        "app/Listeners/LogTicketActivity.php",
-        "app/Models/Ticket.php",
-        "app/Http/Controllers/V1/TicketActivityController.php",
-        "routes/api.php"
+        "tests/Feature/V1/SlaPolicyTest.php"
       ]
     },
     {
       "id": 3,
-      "title": "Queues & Assignment Endpoints",
-      "description": "Implement ticket assignment endpoints under api/v1: POST tickets/{id}/assign to reassign to an agent, POST tickets/{id}/claim for self-assignment. Add dynamic query scopes/filters for 'my_tickets' (assigned to current user) and 'unassigned' (agent_id null) on the tickets index. Enforce authorization policies for assignment actions.",
+      "title": "Activity Log Tests",
+      "description": "Write feature tests verifying activity log creation upon ticket status changes and assignments.",
       "files": [
-        "app/Http/Controllers/V1/TicketAssignmentController.php",
-        "app/Models/Ticket.php",
-        "app/Http/Requests/V1/AssignTicketRequest.php",
-        "app/Policies/TicketPolicy.php",
-        "app/Http/Controllers/V1/TicketController.php",
-        "app/Http/Requests/V1/IndexTicketRequest.php",
-        "routes/api.php"
+        "tests/Feature/V1/ActivityLogTest.php"
       ]
     },
     {
       "id": 4,
-      "title": "Dashboard Metrics API",
-      "description": "Create GET /api/v1/dashboard/metrics endpoint returning: ticket counts grouped by status, ticket counts grouped by priority, average first-response time, SLA breach rate (percentage), and daily ticket creation volume (last 30 days). Use query builders/aggregations efficiently. Cache results if appropriate.",
+      "title": "Ticket Assignment and Filter Tests",
+      "description": "Write feature tests covering ticket claim/assignment flow with proper authorization, and verify filtered index for my_tickets and unassigned scopes.",
       "files": [
-        "app/Http/Controllers/V1/DashboardMetricsController.php",
-        "app/Services/DashboardMetricsService.php",
-        "app/Http/Resources/V1/DashboardMetricsResource.php",
-        "routes/api.php"
+        "tests/Feature/V1/TicketAssignmentTest.php"
       ]
     },
     {
       "id": 5,
-      "title": "Integration Tests - Sprint 3",
-      "description": "Write Pest/PHPUnit feature tests verifying: SLA calculations (breached and time-remaining fields), activity log creation on status change and assignment, ticket claim/assignment flow with authorization, filtered index for my_tickets and unassigned, and dashboard metrics endpoint output shape and values.",
+      "title": "Dashboard Metrics Tests",
+      "description": "Write feature tests to verify the dashboard metrics endpoint output shape and the accuracy of the returned values.",
       "files": [
-        "tests/Feature/V1/SlaPolicyTest.php",
-        "tests/Feature/V1/ActivityLogTest.php",
-        "tests/Feature/V1/TicketAssignmentTest.php",
-        "tests/Feature/V1/DashboardMetricsTest.php",
-        "database/factories/SlaPolicyFactory.php",
-        "database/factories/ActivityLogFactory.php"
+        "tests/Feature/V1/DashboardMetricsTest.php"
       ]
     }
   ],
-  "current_task_index": 3
+  "current_task_index": 0
 }
