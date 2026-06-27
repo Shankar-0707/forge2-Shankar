@@ -1,66 +1,101 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🫀 PulseDesk
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> A modern, multi-tenant helpdesk and support platform built with **Laravel 11** and **React 19**.
 
-## About Laravel
+PulseDesk empowers organizations to manage support tickets, customer interactions, and internal workflows from a single, elegant dashboard. Built on a robust multi-tenant architecture, every piece of data is siloed per-organization — keeping your customer conversations private and secure.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📑 Table of Contents
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. [Overview](#-overview)
+2. [Tech Stack](#-tech-stack)
+3. [Features](#-features)
+4. [Requirements](#-requirements)
+5. [Getting Started](#-getting-started)
+   - [1. Clone & Install](#1-clone--install)
+   - [2. Environment Setup](#2-environment-setup)
+   - [3. Database Setup](#3-database-setup)
+   - [4. Frontend Setup](#4-frontend-setup)
+6. [Running the Project](#-running-the-project)
+7. [Project Structure](#-project-structure)
+8. [Usage Guide](#-usage-guide)
+9. [API Conventions](#-api-conventions)
+10. [Testing](#-testing)
+11. [Deployment](#-deployment)
+12. [Contributing](#-contributing)
+13. [License](#-license)
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🎯 Overview
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+PulseDesk is a full-stack customer support platform that enables organizations to:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Track and resolve support tickets
+- Manage customer relationships
+- Collaborate across internal teams
+- Monitor performance with real-time analytics
 
-## Laravel Sponsors
+Every query, ticket, and interaction is **automatically scoped** to the authenticated user's organization. No cross-tenant data leaks — ever.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🧰 Tech Stack
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Backend
+| Technology       | Version |
+|------------------|---------|
+| PHP              | 8.3+    |
+| Laravel          | 11.x    |
+| Laravel Sanctum  | 4.x     |
+| MySQL / PostgreSQL | 8+ / 14+ |
+| Redis            | 7+ (cache, queues) |
 
-## Contributing
+### Frontend
+| Technology | Version |
+|------------|---------|
+| React      | 19.x    |
+| TypeScript | 5.x     |
+| Vite       | 5.x     |
+| Tailwind CSS | 3.x   |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Tooling
+| Tool          | Purpose             |
+|---------------|---------------------|
+| Pest PHP      | Backend testing     |
+| Vitest        | Frontend testing    |
+| Pint          | PHP formatting      |
+| ESLint/Prettier | JS/TS linting     |
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ✨ Features
 
-## Security Vulnerabilities
+- 🔐 **Multi-tenant by design** — organization-level data isolation enforced at the query layer
+- 🎫 **Ticket management** — create, assign, prioritize, and resolve support tickets
+- 👥 **Team collaboration** — internal notes, mentions, and shared views
+- 📊 **Analytics dashboard** — real-time metrics on response times, satisfaction, and volume
+- 📨 **Email integration** — convert inbound emails into tickets automatically
+- 🌙 **Dark mode** — because support agents work at 2 AM
+- ⚡ **SPA performance** — React 19 concurrent rendering for a snappy UX
+- 🔔 **Real-time notifications** — powered by Laravel Echo + WebSockets
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## ✅ Requirements
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Before you begin, ensure you have the following installed:
+
+- **PHP** >= 8.3 with extensions: `pdo`, `mbstring`, `xml`, `bcmath`, `curl`, `zip`
+- **Composer** >= 2.7
+- **Node.js** >= 20.x (LTS recommended)
+- **npm** >= 10.x or **pnpm** >= 9.x
+- **MySQL** >= 8.0 **or** **PostgreSQL** >= 14
+- **Redis** >= 7 (optional but recommended for queues/cache)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone & Install
