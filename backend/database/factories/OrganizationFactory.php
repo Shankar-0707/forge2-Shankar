@@ -10,7 +10,7 @@ class OrganizationFactory extends Factory
     {
         return [
             'name' => fake()->company(),
-            'slug' => fake()->unique()->slug(),
+            'sla_response_minutes' => fake()->randomElement([60, 120, 240, 480]),
         ];
     }
 }
