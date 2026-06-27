@@ -1,31 +1,14 @@
 <?php
 
+use App\Http\Controllers\Api\V1\Auth\LoginController;
+use App\Http\Controllers\Api\V1\Auth\LogoutController;
+use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes — PulseDesk
-|--------------------------------------------------------------------------
-|
-| All API routes below are automatically prefixed with /api.
-| Sanctum-protected routes use the 'auth:sanctum' middleware.
-|
-*/
-
-Route::get('/health', function () {
-    return response()->json([
-        'status' => 'ok',
-        'service' => 'PulseDesk API',
-        'timestamp' => now()->toISOString(),
-    ]);
-});
-
-// Auth routes (public)
-Route::prefix('auth')->group(function () {
-    // TODO: register, login, logout, me endpoints in Task #2
-});
-
-// Protected routes — require Sanctum token
-Route::middleware('auth:sanctum')->group(function () {
-    // TODO: organization, ticket, user endpoints in subsequent tasks
+Route::prefix('v1')->group(function () {
+    Route::prefix('auth')->group(function () {
+        Route::post('register', RegisterController::class);
+        Route::post('login', LoginController::class);
+        Route::post('logout', LogoutController::class)->middleware('auth:sanctum');
+    });
 });
