@@ -1,0 +1,54 @@
+{
+  "sprint_goal": "Sprint 1 goal: Build the multi-tenant foundation for PulseDesk.\nproject root - E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\n\nTasks needed:\n1. Organization model + migration (id, name, slug, timestamps)\n2. User model with organization_id FK, role enum (admin/agent/customer), Sanctum tokens\n3. Register API: POST /api/auth/register (creates org + admin user together)\n4. Login API: POST /api/auth/login (returns Bearer token)\n5. Logout API: POST /api/auth/logout\n6. EnsureSameTenant middleware \u2014 derives org from auth()-&gt;user()-&gt;organization_id NEVER from request\n7. Pest tests: register, login, cross-tenant isolation (org A user cannot see org B data)",
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Organization & User Models with Migrations",
+      "description": "Create Organization model/migration (id, name, slug, timestamps). Update User model to include organization_id FK and role enum (admin/agent/customer). Install and configure Sanctum for API tokens. Add relationships on both models.",
+      "files": [
+        "app/Models/Organization.php",
+        "app/Models/User.php",
+        "database/migrations/2025_01_01_000001_create_organizations_table.php",
+        "database/migrations/2025_01_01_000002_add_organization_id_and_role_to_users_table.php",
+        "config/sanctum.php",
+        "bootstrap/app.php"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Auth API Endpoints (Register, Login, Logout)",
+      "description": "Build POST /api/auth/register that creates an Organization and an admin User in one transaction. Build POST /api/auth/login that validates credentials and returns a Bearer token via Sanctum. Build POST /api/auth/logout that revokes the current token. Register all three routes in routes/api.php.",
+      "files": [
+        "app/Http/Controllers/Api/AuthController.php",
+        "routes/api.php",
+        "app/Http/Requests/Auth/RegisterRequest.php",
+        "app/Http/Requests/Auth/LoginRequest.php",
+        "app/Http/Resources/UserResource.php"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "EnsureSameTenant Middleware",
+      "description": "Create middleware that resolves the tenant solely from auth()->user()->organization_id \u2014 never from request input, headers, or route params. Share the tenant org globally for query scoping. Register the middleware alias in bootstrap/app.php and apply it to protected API routes.",
+      "files": [
+        "app/Http/Middleware/EnsureSameTenant.php",
+        "bootstrap/app.php",
+        "app/Providers/AppServiceProvider.php"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Pest Feature Tests \u2014 Auth & Cross-Tenant Isolation",
+      "description": "Write Pest tests covering: (1) successful registration creates org + admin user and returns token, (2) login returns valid Bearer token, (3) logout revokes token, (4) cross-tenant isolation \u2014 a user from org A cannot read or access resources belonging to org B through the API. Use RefreshDatabase and factories.",
+      "files": [
+        "tests/Feature/Auth/RegisterTest.php",
+        "tests/Feature/Auth/LoginTest.php",
+        "tests/Feature/Auth/LogoutTest.php",
+        "tests/Feature/Tenant/TenantIsolationTest.php",
+        "database/factories/OrganizationFactory.php",
+        "database/factories/UserFactory.php"
+      ]
+    }
+  ],
+  "current_task_index": 0
+}
