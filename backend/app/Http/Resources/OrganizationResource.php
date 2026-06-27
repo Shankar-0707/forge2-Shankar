@@ -5,17 +5,16 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class OrganizationResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
         return [
             'id' => $this->id,
-            'organization_id' => $this->organization_id,
             'name' => $this->name,
-            'email' => $this->email,
-            'role' => $this->role,
-            'email_verified_at' => $this->email_verified_at,
+            'slug' => $this->slug,
+            'users' => UserResource::collection($this->whenLoaded('users')),
+            'users_count' => $this->whenLoaded('users', fn () => $this->users->count()),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
