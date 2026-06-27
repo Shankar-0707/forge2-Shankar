@@ -2,110 +2,107 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Auth;
 
 class Ticket extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public const STATUS_OPEN = 'open';
+    public const STATUS_IN_PROGRESS = 'in_progress';
+    public const STATUS_PENDING = 'pending';
+    public const STATUS_RESOLVED = 'resolved';
+    public const STATUS_CLOSED = 'closed';
+
+    public const STATUSES = [
+        self::STATUS_OPEN,
+        self::STATUS_IN_PROGRESS,
+        self::STATUS_PENDING,
+        self::STATUS_RESOLVED,
+        self::STATUS_CLOSED,
+    ];
+
+    public const PRIORITY_LOW = 'low';
+    public const PRIORITY_MEDIUM = 'medium';
+    public const PRIORITY_HIGH = 'high';
+    public const PRIORITY_URGENT = 'urgent';
+
+    public const PRIORITIES = [
+        self::PRIORITY_LOW,
+        self::PRIORITY_MEDIUM,
+        self::PRIORITY_HIGH,
+        self::PRIORITY_URGENT,
+    ];
+
     protected $fillable = [
         'organization_id',
-        'agent_id',
-        'subject',
+        'requester_id',
+        'assignee_id',
+        'ticket_number',
+        'title',
         'description',
         'status',
         'priority',
+        'category',
+        'sla_due_at',
+        'resolved_at',
     ];
 
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+        'sla_due_at' => 'datetime',
+        'resolved_at' => 'datetime',
     ];
 
-    /*
-    |--------------------------------------------------------------------------
-    | Boot — Global Organization Scope
-    |--------------------------------------------------------------------------
-    */
-    protected static function booted(): void
-    {
-        static::addGlobalScope('organization', function (Builder $builder) {
-            if (Auth::check()) {
-                $builder->where('tickets.organization_id', Auth::user()->organization_id);
-            }
-        });
-
-        static::creating(function (Ticket $ticket) {
-            if (Auth::check() && ! $ticket->organization_id) {
-                $ticket->organization_id = Auth::user()->organization_id;
-            }
-        });
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Relationships
-    |--------------------------------------------------------------------------
-    */
     public function organization(): BelongsTo
     {
         return $this->belongsTo(Organization::class);
     }
 
-    public function agent(): BelongsTo
+    public function requester(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'agent_id');
+        return $this->belongsTo(User::class, 'requester_id');
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Query Scopes / Filters
-    |--------------------------------------------------------------------------
-    */
-    public function scopeAssignedTo(Builder $query, int $userId): Builder
+    public function assignee(): BelongsTo
     {
-        return $query->where('agent_id', $userId);
+        return $this->belongsTo(User::class, 'assignee_id');
     }
 
-    public function scopeMyTickets(Builder $query, ?int $userId = null): Builder
+    public function scopeForOrganization(Builder $query, int $orgId): Builder
     {
-        $userId ??= Auth::id();
-
-        return $query->where('agent_id', $userId);
+        return $query->where('organization_id', $orgId);
     }
 
-    public function scopeUnassigned(Builder $query): Builder
+    public function scopeSearch(Builder $query, ?string $term): Builder
     {
-        return $query->whereNull('agent_id');
+        if (! $term) {
+            return $query;
+        }
+
+        return $query->where(function (Builder $q) use ($term) {
+            $q->where('title', 'ILIKE', "%{$term}%")
+              ->orWhere('ticket_number', 'ILIKE', "%{$term}%")
+              ->orWhere('description', 'ILIKE', "%{$term}%");
+        });
     }
 
-    public function scopeAssigned(Builder $query): Builder
+    public function isSlaBreached(): bool
     {
-        return $query->whereNotNull('agent_id');
+        return $this->sla_due_at !== null && now()->isAfter($this->sla_due_at);
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Helpers
-    |--------------------------------------------------------------------------
-    */
-    public function isAssigned(): bool
+    public function isSlaAtRisk(): bool
     {
-        return $this->agent_id !== null;
-    }
+        if (! $this->sla_due_at) {
+            return false;
+        }
 
-    public function isAssignedTo(User $user): bool
-    {
-        return $this->agent_id === $user->id;
-    }
+        $minutesRemaining = now()->diffInMinutes($this->sla_due_at, false);
 
-    public function isUnassigned(): bool
-    {
-        return $this->agent_id === null;
+        return $minutesRemaining >= 0 && $minutesRemaining <= 120;
     }
 }
