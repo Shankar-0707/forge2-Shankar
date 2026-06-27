@@ -14,11 +14,18 @@ class Organization extends Model
     protected $fillable = [
         'name',
         'slug',
+        'timezone',
+        'is_active',
+        'settings',
+        'trial_ends_at',
     ];
 
-    /**
-     * Auto-generate slug from name when creating/updating.
-     */
+    protected $casts = [
+        'is_active'      => 'boolean',
+        'settings'       => 'array',
+        'trial_ends_at'  => 'datetime',
+    ];
+
     protected static function booted(): void
     {
         static::creating(function (Organization $organization) {
@@ -28,17 +35,24 @@ class Organization extends Model
         });
 
         static::updating(function (Organization $organization) {
-            if ($organization->isDirty('name') && ! $organization->isDirty('slug')) {
+            if ($organization->isDirty('name') && !$organization->isDirty('slug')) {
                 $organization->slug = Str::slug($organization->name);
             }
         });
     }
 
-    /**
-     * All users belonging to this organization (admins, agents, customers).
-     */
     public function users(): HasMany
     {
         return $this->hasMany(User::class);
+    }
+
+    public function activeUsers(): HasMany
+    {
+        return $this->hasMany(User::class)->where('is_active', true);
+    }
+
+    public function admins(): HasMany
+    {
+        return $this->hasMany(User::class)->where('role', 'admin');
     }
 }
