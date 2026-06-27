@@ -2,42 +2,47 @@
 
 namespace Database\Factories;
 
+use App\Models\Organization;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ */
 class UserFactory extends Factory
 {
+    protected $model = User::class;
+
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'name' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
             'password' => Hash::make('password'),
-            'remember_token' => Str::random(10),
-            'organization_id' => null,
+            'organization_id' => Organization::factory(),
+            'role' => 'agent',
         ];
     }
 
-    public function unverified(): static
+    public function admin(): static
     {
-        return $this->state(fn () => [
-            'email_verified_at' => null,
+        return $this->state(fn (array $attributes) => [
+            'role' => 'admin',
         ]);
     }
 
-    public function forOrganization($orgId): static
+    public function agent(): static
     {
-        return $this->state(fn () => [
-            'organization_id' => $orgId,
+        return $this->state(fn (array $attributes) => [
+            'role' => 'agent',
         ]);
     }
 
-    public function withPassword(string $password): static
+    public function customer(): static
     {
-        return $this->state(fn () => [
-            'password' => Hash::make($password),
+        return $this->state(fn (array $attributes) => [
+            'role' => 'customer',
         ]);
     }
 }

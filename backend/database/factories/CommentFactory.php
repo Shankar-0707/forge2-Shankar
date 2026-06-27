@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Comment;
+use App\Models\Ticket;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -10,27 +12,29 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class CommentFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * ticket_id and user_id must be supplied by the caller so that comments
-     * always belong to a real ticket and a real (organization-scoped) author.
-     */
+    protected $model = Comment::class;
+
     public function definition(): array
     {
         return [
-            'body'        => fake()->paragraph(fake()->numberBetween(1, 4), true),
+            'ticket_id' => Ticket::factory(),
+            'user_id' => User::factory(),
+            'body' => fake()->paragraph(2),
             'is_internal' => false,
         ];
     }
 
     public function internal(): static
     {
-        return $this->state(fn (array $attributes) => ['is_internal' => true]);
+        return $this->state(fn (array $attributes) => [
+            'is_internal' => true,
+        ]);
     }
 
     public function public(): static
     {
-        return $this->state(fn (array $attributes) => ['is_internal' => false]);
+        return $this->state(fn (array $attributes) => [
+            'is_internal' => false,
+        ]);
     }
 }
