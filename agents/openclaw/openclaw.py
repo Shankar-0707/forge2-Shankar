@@ -41,17 +41,23 @@ def run(cmd, cwd=None):
 # ...code...
 # ```
 def parse_and_write_files(llm_output):
-    pattern = r'FILE:\s*(\S+)\s*```(?:\w+)?\n(.*?)```'
-    matches = re.findall(pattern, llm_output, re.DOTALL)
+    segments = re.split(r'FILE:\s*', llm_output)
     written = []
-    for filepath, content in matches:
-        filepath = filepath.strip().strip("*`").strip()
-        full_path = os.path.join(WORKING_DIR, filepath)
-        os.makedirs(os.path.dirname(full_path), exist_ok=True)
-        with open(full_path, "w", encoding="utf-8") as f:
-            f.write(content.strip() + "\n")
-        written.append(filepath)
-        print(f"[OpenClaw] 📝 Wrote: {filepath}")
+    for segment in segments[1:]:
+        lines = segment.strip().split('\n')
+        if not lines:
+            continue
+        filepath = lines[0].strip().strip("*`# ").strip()
+        # Extract the first code block within this segment
+        content_match = re.search(r'```(?:\w+)?\n(.*?)```', segment, re.DOTALL)
+        if content_match:
+            content = content_match.group(1)
+            full_path = os.path.join(WORKING_DIR, filepath)
+            os.makedirs(os.path.dirname(full_path), exist_ok=True)
+            with open(full_path, "w", encoding="utf-8") as f:
+                f.write(content.strip() + "\n")
+            written.append(filepath)
+            print(f"[OpenClaw] 📝 Wrote: {filepath}")
     return written
 
 # ── open a GitHub PR ──────────────────────────────────────
