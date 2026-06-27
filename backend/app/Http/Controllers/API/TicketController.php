@@ -3,72 +3,125 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\ReassignTicketRequest;
 use App\Http\Resources\TicketResource;
 use App\Models\Ticket;
+use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class TicketController extends Controller
 {
-    public function index(Request $request)
+    /**
+     * Display the specified ticket, scoped to the auth user's organization.
+     */
+    public function show(Ticket $ticket): JsonResponse
     {
-        $orgId = $request->user()->organization_id;
+        $this->authorizeOrg($ticket);
 
-        $validated = $request->validate([
-            'search' => ['nullable', 'string', 'max:200'],
-            'status' => ['nullable', 'string', 'in:' . implode(',', Ticket::STATUSES)],
-            'priority' => ['nullable', 'string', 'in:' . implode(',', Ticket::PRIORITIES)],
-            'assignee_id' => ['nullable', 'string'],
-            'sort' => ['nullable', 'string', 'in:created_at,priority,sla_due_at,updated_at'],
-            'direction' => ['nullable', 'string', 'in:asc,desc'],
+        return response()->json(new TicketResource($ticket->load(['creator', 'assignee'])));
+    }
+
+    /**
+     * Claim an unassigned (or re-claim) ticket for the current user.
+     */
+    public function claim(Request $request, Ticket $ticket): JsonResponse
+    {
+        $this->authorizeOrg($ticket);
+
+        /** @var User $user */
+        $user = $request->user();
+
+        if (! $user->canManageTickets()) {
+            return response()->json([
+                'message' => 'You do not have permission to claim tickets.',
+            ], 403);
+        }
+
+        $wasFirstResponse = $ticket->first_response_at === null;
+
+        $ticket->update([
+            'assigned_to' => $user->id,
+            'status' => Ticket::STATUS_CLAIMED,
+            'first_response_at' => $ticket->first_response_at ?? now(),
         ]);
 
-        $query = Ticket::forOrganization($orgId)
-            ->with(['assignee', 'requester']);
+        return response()->json([
+            'message' => 'Ticket claimed successfully.',
+            'ticket' => new TicketResource($ticket->fresh(['creator', 'assignee'])),
+            'first_response_recorded' => $wasFirstResponse,
+        ]);
+    }
 
-        if (! empty($validated['search'])) {
-            $query->search($validated['search']);
+    /**
+     * Reassign a ticket to another user within the same organization.
+     */
+    public function reassign(ReassignTicketRequest $request, Ticket $ticket): JsonResponse
+    {
+        $this->authorizeOrg($ticket);
+
+        /** @var User $user */
+        $user = $request->user();
+
+        if (! $user->canManageTickets()) {
+            return response()->json([
+                'message' => 'You do not have permission to reassign tickets.',
+            ], 403);
         }
 
-        if (! empty($validated['status'])) {
-            $query->where('status', $validated['status']);
+        $targetUserId = $request->validated('user_id');
+
+        // Defensive double-check: target must be in the same org
+        $targetUser = User::where('id', $targetUserId)
+            ->where('organization_id', $user->organization_id)
+            ->first();
+
+        if (! $targetUser) {
+            return response()->json([
+                'message' => 'The selected user is not available in your organization.',
+            ], 422);
         }
 
-        if (! empty($validated['priority'])) {
-            $query->where('priority', $validated['priority']);
-        }
+        $wasFirstResponse = $ticket->first_response_at === null;
 
-        if (! empty($validated['assignee_id'])) {
-            if ($validated['assignee_id'] === 'unassigned') {
-                $query->whereNull('assignee_id');
-            } else {
-                $query->where('assignee_id', (int) $validated['assignee_id']);
-            }
-        }
+        $ticket->update([
+            'assigned_to' => $targetUser->id,
+            'status' => Ticket::STATUS_CLAIMED,
+            'first_response_at' => $ticket->first_response_at ?? now(),
+        ]);
 
-        $sortColumn = $validated['sort'] ?? 'created_at';
-        $sortDirection = $validated['direction'] ?? 'desc';
+        return response()->json([
+            'message' => "Ticket reassigned to {$targetUser->name}.",
+            'ticket' => new TicketResource($ticket->fresh(['creator', 'assignee'])),
+            'first_response_recorded' => $wasFirstResponse,
+        ]);
+    }
 
-        if ($sortColumn === 'priority') {
-            $priorityOrder = [
-                Ticket::PRIORITY_URGENT => 1,
-                Ticket::PRIORITY_HIGH => 2,
-                Ticket::PRIORITY_MEDIUM => 3,
-                Ticket::PRIORITY_LOW => 4,
-            ];
-            $query->orderByRaw("CASE WHEN priority IS NULL THEN 5 ELSE {$priorityOrder[Ticket::PRIORITY_LOW]} END")
-                  ->orderByRaw("CASE priority
-                      WHEN 'urgent' THEN 1
-                      WHEN 'high' THEN 2
-                      WHEN 'medium' THEN 3
-                      WHEN 'low' THEN 4
-                      ELSE 5 END " . $sortDirection);
-        } else {
-            $query->orderBy($sortColumn, $sortDirection);
-        }
+    /**
+     * List assignable team members for the reassign dropdown.
+     */
+    public function assignableUsers(Request $request): AnonymousResourceCollection
+    {
+        /** @var User $user */
+        $user = $request->user();
 
-        $tickets = $query->paginate($request->integer('per_page', 50))
-            ->through(fn (Ticket $ticket) => new TicketResource($ticket));
+        $users = User::where('organization_id', $user->organization_id)
+            ->whereIn('role', [User::ROLE_ADMIN, User::ROLE_AGENT])
+            ->orderBy('name')
+            ->get();
 
-        return response()->json($tickets);
+        return \App\Http\Resources\UserResource::collection($users);
+    }
+
+    /**
+     * Ensure the ticket belongs to the auth user's organization.
+     * Never trust organization_id from the request.
+     */
+    private function authorizeOrg(Ticket $ticket): void
+    {
+        $orgId = auth()->user()->organization_id;
+
+        abort_unless($ticket->organization_id === $orgId, 404);
     }
 }

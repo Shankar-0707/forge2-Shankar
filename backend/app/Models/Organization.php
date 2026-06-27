@@ -12,11 +12,25 @@ class Organization extends Model
 
     protected $fillable = [
         'name',
-        'slug',
+        'sla_response_minutes',
+    ];
+
+    protected $casts = [
+        'sla_response_minutes' => 'integer',
     ];
 
     public function users(): HasMany
     {
         return $this->hasMany(User::class);
+    }
+
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+    public function getSlaThresholdMinutes(): int
+    {
+        return $this->sla_response_minutes ?? 240;
     }
 }

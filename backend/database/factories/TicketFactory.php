@@ -11,45 +11,37 @@ class TicketFactory extends Factory
 {
     public function definition(): array
     {
-        $status = fake()->randomElement(Ticket::STATUSES);
-        $isResolved = in_array($status, [Ticket::STATUS_RESOLVED, Ticket::STATUS_CLOSED]);
+        $org = Organization::factory()->create();
 
         return [
-            'organization_id' => Organization::factory(),
-            'requester_id' => User::factory(),
-            'assignee_id' => null,
-            'ticket_number' => 'TKT-' . strtoupper(fake()->unique()->bothify('??-####')),
-            'title' => fake()->sentence(4),
+            'organization_id' => $org->id,
+            'created_by' => User::factory()->for($org),
+            'assigned_to' => null,
+            'title' => fake()->sentence(),
             'description' => fake()->paragraph(),
-            'status' => $status,
-            'priority' => fake()->randomElement(Ticket::PRIORITIES),
-            'category' => fake()->optional()->randomElement(['billing', 'technical', 'general', 'feature']),
-            'sla_due_at' => $isResolved ? null : fake()->dateTimeBetween('-2 days', '+3 days'),
-            'resolved_at' => $isResolved ? fake()->dateTimeThisMonth() : null,
+            'status' => fake()->randomElement([
+                Ticket::STATUS_OPEN,
+                Ticket::STATUS_CLAIMED,
+                Ticket::STATUS_PENDING,
+                Ticket::STATUS_RESOLVED,
+                Ticket::STATUS_CLOSED,
+            ]),
+            'priority' => fake()->randomElement([
+                Ticket::PRIORITY_LOW,
+                Ticket::PRIORITY_NORMAL,
+                Ticket::PRIORITY_HIGH,
+                Ticket::PRIORITY_URGENT,
+            ]),
+            'first_response_at' => null,
+            'resolved_at' => null,
         ];
     }
 
-    public function assigned(): static
+    public function for(Organization $org): static
     {
         return $this->state(fn (array $attributes) => [
-            'assignee_id' => User::factory()->for(
-                Organization::find($attributes['organization_id']) ?? Organization::factory(),
-                'organization'
-            )->create(),
-        ]);
-    }
-
-    public function breached(): static
-    {
-        return $this->state(fn () => [
-            'sla_due_at' => now()->subHours(3),
-        ]);
-    }
-
-    public function atRisk(): static
-    {
-        return $this->state(fn () => [
-            'sla_due_at' => now()->addMinutes(rand(5, 110)),
+            'organization_id' => $org->id,
+            'created_by' => User::factory()->for($org),
         ]);
     }
 }
