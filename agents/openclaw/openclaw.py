@@ -64,13 +64,18 @@ def parse_and_write_files(llm_output):
 
 # ── open a GitHub PR ──────────────────────────────────────
 def open_pr(branch, title, body):
+    headers = {
+        "Authorization": f"Bearer {GH_TOKEN}",
+        "Accept": "application/vnd.github.v3+json"
+    }
     r = requests.post(
         f"https://api.github.com/repos/{REPO}/pulls",
-        headers={"Authorization": f"token {GH_TOKEN}",
-                 "Accept": "application/vnd.github.v3+json"},
+        headers=headers,
         json={"title": title, "body": body, "head": branch, "base": "main"}
     )
     data = r.json()
+    print(f"[OpenClaw] GitHub PR status: {r.status_code}")
+    print(f"[OpenClaw] GitHub PR body: {data}")
     return data.get("html_url", f"PR error: {data.get('message','unknown')}")
 
 # ── resolve channel name ──────────────────────────────────

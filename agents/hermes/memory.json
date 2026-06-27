@@ -4,59 +4,69 @@
     {
       "id": 1,
       "title": "SLA Policies & Timers",
-      "description": "Create SlaPolicy model and migration with response_time_limit and resolution_time_limit mapped per priority (low, medium, high, urgent). Add computed accessors on Ticket for response/resolution due dates and 'time_remaining' / 'is_sla_breached' fields, applying the SLA matching the ticket priority.",
+      "description": "Create SlaPolicy model and migration with response_time_limit and resolution_time_limit (minutes) mapped per priority (low, medium, high, urgent). Seed default SLA policies per priority. Add accessor/computed fields on Ticket (or API responses) for response_time_remaining, resolution_time_remaining, response_sla_breached, and resolution_sla_breached based on ticket created_at and SLA limits. Include relationships and a helper to resolve the applicable policy by priority.",
       "files": [
         "app/Models/SlaPolicy.php",
         "database/migrations/xxxx_create_sla_policies_table.php",
+        "database/seeders/SlaPolicySeeder.php",
         "app/Models/Ticket.php",
-        "app/Services/SlaCalculator.php"
+        "app/Traits/CalculatesSla.php",
+        "app/Http/Resources/V1/TicketResource.php"
       ]
     },
     {
       "id": 2,
       "title": "Activity Log / Audit Trail",
-      "description": "Create ActivityLog model and migration to record actor_id, event type (ticket.created, ticket.assigned, ticket.status_changed, ticket.commented), and timestamps. Wire a TicketObserver (or event listeners) to log these lifecycle events automatically.",
+      "description": "Create ActivityLog model and migration tracking ticket lifecycle events. Columns: ticket_id, actor_id (nullable for system), event (string: created, assigned, status_changed, commented), metadata (json), timestamps. Dispatch/listen for events on ticket creation, assignment changes, status changes, and comment creation to persist ActivityLog records. Add relationship on Ticket and expose activity via ticket endpoint.",
       "files": [
         "app/Models/ActivityLog.php",
         "database/migrations/xxxx_create_activity_logs_table.php",
-        "app/Observers/TicketObserver.php",
-        "app/Providers/AppServiceProvider.php",
-        "app/Events/TicketStatusChanged.php"
+        "app/Events/TicketCreated.php",
+        "app/Events/TicketStatusChanged.php",
+        "app/Events/TicketAssigned.php",
+        "app/Events/CommentAdded.php",
+        "app/Listeners/LogTicketActivity.php",
+        "app/Models/Ticket.php",
+        "app/Http/Controllers/V1/TicketActivityController.php",
+        "routes/api.php"
       ]
     },
     {
       "id": 3,
       "title": "Queues & Assignment Endpoints",
-      "description": "Implement ticket assignment endpoints under api/v1: POST /tickets/{id}/assign (reassign), POST /tickets/{id}/claim (self-assignment), plus dynamic query scopes/filters for 'My tickets' (assigned_to = auth user) and 'Unassigned tickets' (assigned_to IS NULL). Cover with authorization.",
+      "description": "Implement ticket assignment endpoints under api/v1: POST tickets/{id}/assign to reassign to an agent, POST tickets/{id}/claim for self-assignment. Add dynamic query scopes/filters for 'my_tickets' (assigned to current user) and 'unassigned' (agent_id null) on the tickets index. Enforce authorization policies for assignment actions.",
       "files": [
-        "app/Http/Controllers/Api/V1/TicketAssignmentController.php",
+        "app/Http/Controllers/V1/TicketAssignmentController.php",
         "app/Models/Ticket.php",
-        "routes/api.php",
-        "app/Filters/TicketFilter.php",
-        "app/Http/Requests/V1/AssignTicketRequest.php"
+        "app/Http/Requests/V1/AssignTicketRequest.php",
+        "app/Policies/TicketPolicy.php",
+        "app/Http/Controllers/V1/TicketController.php",
+        "app/Http/Requests/V1/IndexTicketRequest.php",
+        "routes/api.php"
       ]
     },
     {
       "id": 4,
       "title": "Dashboard Metrics API",
-      "description": "Create GET /api/v1/dashboard/metrics endpoint returning ticket counts grouped by status and priority, average first-response time, SLA breach rate (%), and daily ticket creation volume. Use efficient aggregate queries.",
+      "description": "Create GET /api/v1/dashboard/metrics endpoint returning: ticket counts grouped by status, ticket counts grouped by priority, average first-response time, SLA breach rate (percentage), and daily ticket creation volume (last 30 days). Use query builders/aggregations efficiently. Cache results if appropriate.",
       "files": [
-        "app/Http/Controllers/Api/V1/DashboardController.php",
+        "app/Http/Controllers/V1/DashboardMetricsController.php",
         "app/Services/DashboardMetricsService.php",
-        "routes/api.php",
-        "app/Http/Resources/V1/DashboardMetricsResource.php"
+        "app/Http/Resources/V1/DashboardMetricsResource.php",
+        "routes/api.php"
       ]
     },
     {
       "id": 5,
-      "title": "Integration Tests",
-      "description": "Write Pest/PHPUnit feature tests verifying: SLA calculations (breached / time remaining), activity logging on status change and assignment, ticket claim endpoint, 'My tickets' / 'Unassigned' filters, and dashboard metrics output shape and values.",
+      "title": "Integration Tests - Sprint 3",
+      "description": "Write Pest/PHPUnit feature tests verifying: SLA calculations (breached and time-remaining fields), activity log creation on status change and assignment, ticket claim/assignment flow with authorization, filtered index for my_tickets and unassigned, and dashboard metrics endpoint output shape and values.",
       "files": [
         "tests/Feature/V1/SlaPolicyTest.php",
         "tests/Feature/V1/ActivityLogTest.php",
         "tests/Feature/V1/TicketAssignmentTest.php",
         "tests/Feature/V1/DashboardMetricsTest.php",
-        "tests/Feature/V1/TicketFiltersTest.php"
+        "database/factories/SlaPolicyFactory.php",
+        "database/factories/ActivityLogFactory.php"
       ]
     }
   ],
