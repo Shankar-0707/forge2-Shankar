@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Organization;
 use App\Models\Ticket;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -10,30 +12,83 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class TicketFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * Note: organization_id, customer_id, and assignee_id are intentionally
-     * omitted from the definition. They must always be supplied at create()
-     * time to guarantee that every ticket is scoped to an organization.
-     */
+    protected $model = Ticket::class;
+
     public function definition(): array
     {
         return [
-            'subject'     => fake()->sentence(fake()->numberBetween(4, 8), true),
-            'description' => fake()->paragraph(fake()->numberBetween(2, 5), true),
-            'status'      => fake()->randomElement(['open', 'pending', 'resolved', 'closed']),
-            'priority'    => fake()->randomElement(['low', 'medium', 'high', 'urgent']),
+            'organization_id' => Organization::factory(),
+            'customer_id' => User::factory()->customer(),
+            'assignee_id' => null,
+            'subject' => fake()->sentence(6),
+            'description' => fake()->paragraph(3),
+            'status' => fake()->randomElement(['open', 'pending', 'resolved', 'closed']),
+            'priority' => fake()->randomElement(['low', 'medium', 'high', 'urgent']),
         ];
     }
 
-    public function status(string $status): static
+    public function open(): static
     {
-        return $this->state(fn (array $attributes) => ['status' => $status]);
+        return $this->state(fn (array $attributes) => [
+            'status' => 'open',
+        ]);
     }
 
-    public function priority(string $priority): static
+    public function pending(): static
     {
-        return $this->state(fn (array $attributes) => ['priority' => $priority]);
+        return $this->state(fn (array $attributes) => [
+            'status' => 'pending',
+        ]);
+    }
+
+    public function resolved(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'status' => 'resolved',
+        ]);
+    }
+
+    public function closed(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'status' => 'closed',
+        ]);
+    }
+
+    public function lowPriority(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'priority' => 'low',
+        ]);
+    }
+
+    public function mediumPriority(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'priority' => 'medium',
+        ]);
+    }
+
+    public function highPriority(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'priority' => 'high',
+        ]);
+    }
+
+    public function urgentPriority(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'priority' => 'urgent',
+        ]);
+    }
+
+    public function assigned(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'assignee_id' => User::factory()->agent([
+                'organization_id' => $attributes['organization_id'] ?? Organization::factory(),
+            ]),
+        ]);
     }
 }

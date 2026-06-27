@@ -1,106 +1,316 @@
 <?php
 
-use App\Models\User;
+use App\Models\Comment;
 use App\Models\Organization;
-use App\Models\Project;
+use App\Models\Ticket;
+use App\Models\User;
 use Laravel\Sanctum\Sanctum;
 
-describe('Tenant isolation', function () {
+use function Pest\Laravel\assertDatabaseCount;
+use function Pest\Laravel\assertDatabaseHas;
+use function Pest\Laravel\deleteJson;
+use function Pest\Laravel\getJson;
+use function Pest\Laravel\postJson;
+use function Pest\Laravel\putJson;
+
+describe('Cross-Tenant Ticket Access Prevention', function () {
     beforeEach(function () {
         $this->orgA = Organization::factory()->create();
         $this->orgB = Organization::factory()->create();
 
-        $this->userA = User::factory()->forOrganization($this->orgA->id)->create();
-        $this->userB = User::factory()->forOrganization($this->orgB->id)->create();
-    });
+        $this->userA = User::factory()->for($this->orgA)->admin()->create();
 
-    it('only lists projects belonging to the user organization', function () {
-        $orgAProject = Project::factory()->forOrganization($this->orgA->id)->create();
-        $orgBProject = Project::factory()->forOrganization($this->orgB->id)->create();
+        $this->ticketA = Ticket::factory()->for($this->orgA)->create();
+        $this->ticketB = Ticket::factory()->for($this->orgB)->create();
 
         Sanctum::actingAs($this->userA);
+    });
 
-        $this->getJson('/api/projects')
+    it('prevents user from viewing a ticket belonging to another organization', function () {
+        getJson("/api/tickets/{$this->ticketB->id}")
+            ->assertNotFound();
+    });
+
+    it('prevents user from updating a ticket belonging to another organization', function () {
+        putJson("/api/tickets/{$this->ticketB->id}", [
+            'status' => 'resolved',
+        ])
+            ->assertNotFound();
+
+        assertDatabaseHas('tickets', [
+            'id' => $this->ticketB->id,
+            'status' => $this->ticketB->status,
+        ]);
+    });
+
+    it('prevents user from deleting a ticket belonging to another organization', function () {
+        deleteJson("/api/tickets/{$this->ticketB->id}")
+            ->assertNotFound();
+
+        assertDatabaseHas('tickets', [
+            'id' => $this->ticketB->id,
+        ]);
+    });
+
+    it('does not list tickets from another organization in the index', function () {
+        Ticket::factory()->for($this->orgA)->count(3)->create();
+        Ticket::factory()->for($this->orgB)->count(5)->create();
+
+        $response = getJson('/api/tickets')
+            ->assertOk();
+
+        $orgIds = collect($response->json('data'))
+            ->pluck('organization_id')
+            ->unique();
+
+        expect($orgIds)->toContain($this->orgA->id);
+        expect($orgIds)->not->toContain($this->orgB->id);
+        expect($response->json('meta.total'))->toBe(4);
+    });
+
+    it('excludes cross-org tickets even when searching globally', function () {
+        Ticket::factory()->for($this->orgA)->create(['subject' => 'Shared keyword']);
+        Ticket::factory()->for($this->orgB)->create(['subject' => 'Shared keyword']);
+
+        $response = getJson('/api/tickets?search=Shared')
             ->assertOk()
-            ->assertJsonFragment(['id' => $orgAProject->id])
-            ->assertJsonMissing(['id' => $orgBProject->id]);
+            ->assertJsonCount(1, 'data');
+
+        expect($response->json('data.0.organization_id'))->toBe($this->orgA->id);
     });
 
-    it('returns 404 when accessing another organization project by id', function () {
-        $orgBProject = Project::factory()->forOrganization($this->orgB->id)->create();
+    it('excludes cross-org tickets when filtering by status', function () {
+        Ticket::factory()->for($this->orgA)->open()->create();
+        Ticket::factory()->for($this->orgA)->open()->create();
+        Ticket::factory()->for($this->orgB)->open()->create();
+        Ticket::factory()->for($this->orgB)->open()->create();
+        Ticket::factory()->for($this->orgB)->open()->create();
+
+        getJson('/api/tickets?status=open')
+            ->assertOk()
+            ->assertJsonCount(3, 'data');
+    });
+});
+
+describe('Cross-Tenant Ticket Creation Prevention', function () {
+    beforeEach(function () {
+        $this->orgA = Organization::factory()->create();
+        $this->orgB = Organization::factory()->create();
+
+        $this->userA = User::factory()->for($this->orgA)->admin()->create();
 
         Sanctum::actingAs($this->userA);
-
-        $this->getJson("/api/projects/{$orgBProject->id}")
-            ->assertNotFound();
     });
 
-    it('cannot update a project owned by another organization', function () {
-        $orgBProject = Project::factory()->forOrganization($this->orgB->id)->create();
+    it('ignores organization_id in the request and uses the authenticated user org', function () {
+        $customer = User::factory()->for($this->orgA)->customer()->create();
 
-        Sanctum::actingAs($this->userA);
+        postJson('/api/tickets', [
+            'subject' => 'Cross-org attempt',
+            'description' => 'Should stay in org A.',
+            'organization_id' => $this->orgB->id,
+            'customer_id' => $customer->id,
+        ])
+            ->assertCreated()
+            ->assertJsonPath('data.organization_id', $this->orgA->id);
 
-        $this->putJson("/api/projects/{$orgBProject->id}", [
-            'name' => 'Hijacked Project',
-        ])->assertNotFound();
-
-        expect($orgBProject->fresh()->name)->toBe($orgBProject->name);
-    });
-
-    it('cannot delete a project owned by another organization', function () {
-        $orgBProject = Project::factory()->forOrganization($this->orgB->id)->create();
-
-        Sanctum::actingAs($this->userA);
-
-        $this->deleteJson("/api/projects/{$orgBProject->id}")
-            ->assertNotFound();
-
-        $this->assertDatabaseHas('projects', ['id' => $orgBProject->id]);
-    });
-
-    it('ignores organization_id supplied in request input and uses authenticated user org', function () {
-        Sanctum::actingAs($this->userA);
-
-        $this->postJson('/api/projects', [
-            'name' => 'New Project',
-            'description' => 'Should be assigned to org A',
-            'organization_id' => $this->orgB->id, // malicious attempt
-        ])->assertCreated();
-
-        $this->assertDatabaseHas('projects', [
-            'name' => 'New Project',
+        assertDatabaseHas('tickets', [
+            'subject' => 'Cross-org attempt',
             'organization_id' => $this->orgA->id,
         ]);
+    });
 
-        $this->assertDatabaseMissing('projects', [
-            'name' => 'New Project',
-            'organization_id' => $this->orgB->id,
+    it('does not allow assigning a ticket to a customer from another organization', function () {
+        $customerB = User::factory()->for($this->orgB)->customer()->create();
+
+        postJson('/api/tickets', [
+            'subject' => 'Invalid customer',
+            'description' => 'Wrong org customer.',
+            'customer_id' => $customerB->id,
+        ])
+            ->assertUnprocessable()
+            ->assertJsonValidationErrors(['customer_id']);
+    });
+
+    it('does not allow assigning a ticket to an agent from another organization', function () {
+        $agentB = User::factory()->for($this->orgB)->agent()->create();
+        $customerA = User::factory()->for($this->orgA)->customer()->create();
+
+        postJson('/api/tickets', [
+            'subject' => 'Invalid assignee',
+            'description' => 'Wrong org agent.',
+            'customer_id' => $customerA->id,
+            'assignee_id' => $agentB->id,
+        ])
+            ->assertUnprocessable()
+            ->assertJsonValidationErrors(['assignee_id']);
+    });
+});
+
+describe('Cross-Tenant Comment Prevention', function () {
+    beforeEach(function () {
+        $this->orgA = Organization::factory()->create();
+        $this->orgB = Organization::factory()->create();
+
+        $this->agentA = User::factory()->for($this->orgA)->agent()->create();
+
+        $this->ticketA = Ticket::factory()->for($this->orgA)->create();
+        $this->ticketB = Ticket::factory()->for($this->orgB)->create();
+
+        Sanctum::actingAs($this->agentA);
+    });
+
+    it('prevents user from commenting on a ticket from another organization', function () {
+        postJson("/api/tickets/{$this->ticketB->id}/comments", [
+            'body' => 'Sneaking into another org.',
+        ])
+            ->assertNotFound();
+
+        assertDatabaseCount('comments', 0);
+    });
+
+    it('prevents user from listing comments on a ticket from another organization', function () {
+        Comment::factory()->for($this->ticketB)->public()->create();
+
+        getJson("/api/tickets/{$this->ticketB->id}/comments")
+            ->assertNotFound();
+    });
+
+    it('prevents user from viewing comments from a cross-org ticket', function () {
+        $comment = Comment::factory()->for($this->ticketB)->public()->create([
+            'body' => 'Cross-org secret comment.',
+        ]);
+
+        getJson("/api/tickets/{$this->ticketB->id}/comments/{$comment->id}")
+            ->assertNotFound();
+    });
+});
+
+describe('Customer Tenant Isolation', function () {
+    beforeEach(function () {
+        $this->orgA = Organization::factory()->create();
+        $this->orgB = Organization::factory()->create();
+
+        $this->customerA = User::factory()->for($this->orgA)->customer()->create();
+        $this->customerB = User::factory()->for($this->orgB)->customer()->create();
+
+        $this->ticketA = Ticket::factory()->for($this->orgA)->create([
+            'customer_id' => $this->customerA->id,
+        ]);
+        $this->ticketB = Ticket::factory()->for($this->orgB)->create([
+            'customer_id' => $this->customerB->id,
         ]);
     });
 
-    it('prevents a user from one org impersonating another org via payload manipulation', function () {
-        Sanctum::actingAs($this->userA);
+    it('prevents customer from viewing tickets in another organization', function () {
+        Sanctum::actingAs($this->customerA);
 
-        $response = $this->postJson('/api/projects', [
-            'name' => 'Cross-tenant Attempt',
-            'organization_id' => $this->orgB->id,
-        ])->assertCreated();
-
-        expect($response->json('organization_id'))->toBe($this->orgA->id);
+        getJson("/api/tickets/{$this->ticketB->id}")
+            ->assertNotFound();
     });
 
-    it('guarantees two users in different orgs see disjoint datasets', function () {
-        Project::factory()->count(3)->forOrganization($this->orgA->id)->create();
-        Project::factory()->count(2)->forOrganization($this->orgB->id)->create();
+    it('prevents customer from listing tickets in another organization', function () {
+        Sanctum::actingAs($this->customerA);
 
-        Sanctum::actingAs($this->userA);
-        $orgAIds = $this->getJson('/api/projects')->json('data.*.id');
+        Ticket::factory()->for($this->orgA)->count(2)->create([
+            'customer_id' => $this->customerA->id,
+        ]);
+        Ticket::factory()->for($this->orgB)->count(5)->create();
 
-        Sanctum::actingAs($this->userB);
-        $orgBIds = $this->getJson('/api/projects')->json('data.*.id');
+        getJson('/api/tickets')
+            ->assertOk()
+            ->assertJsonCount(3, 'data');
+    });
 
-        expect($orgAIds)->toHaveCount(3)
-            ->and($orgBIds)->toHaveCount(2)
-            ->and(collect($orgAIds)->intersect($orgBIds))->toBeEmpty();
+    it('prevents customer from commenting on cross-org tickets', function () {
+        Sanctum::actingAs($this->customerA);
+
+        postJson("/api/tickets/{$this->ticketB->id}/comments", [
+            'body' => 'Should not work.',
+        ])
+            ->assertNotFound();
+
+        assertDatabaseCount('comments', 0);
+    });
+});
+
+describe('Data Leakage Prevention', function () {
+    beforeEach(function () {
+        $this->orgA = Organization::factory()->create();
+        $this->orgB = Organization::factory()->create();
+
+        $this->adminA = User::factory()->for($this->orgA)->admin()->create();
+
+        Sanctum::actingAs($this->adminA);
+    });
+
+    it('does not leak ticket counts across organizations', function () {
+        Ticket::factory()->for($this->orgA)->count(7)->create();
+        Ticket::factory()->for($this->orgB)->count(15)->create();
+
+        $response = getJson('/api/tickets')
+            ->assertOk();
+
+        expect($response->json('meta.total'))->toBe(7);
+    });
+
+    it('does not leak ticket data via show endpoint for cross-org tickets', function () {
+        $ticketB = Ticket::factory()->for($this->orgB)->create([
+            'subject' => 'Confidential Org B Info',
+        ]);
+
+        getJson("/api/tickets/{$ticketB->id}")
+            ->assertNotFound()
+            ->assertJsonMissingPath('data.subject');
+    });
+
+    it('does not leak internal comments across organizations', function () {
+        $ticketA = Ticket::factory()->for($this->orgA)->create();
+        $ticketB = Ticket::factory()->for($this->orgB)->create();
+
+        $agentB = User::factory()->for($this->orgB)->agent()->create();
+        Comment::factory()->for($ticketB)->internal()->create([
+            'body' => 'Org B internal strategy discussion.',
+            'user_id' => $agentB->id,
+        ]);
+
+        Comment::factory()->for($ticketA)->internal()->create([
+            'body' => 'Org A internal note.',
+        ]);
+
+        $response = getJson("/api/tickets/{$ticketA->id}/comments")
+            ->assertOk()
+            ->assertJsonCount(1, 'data');
+
+        $bodies = collect($response->json('data'))->pluck('body');
+        expect($bodies)->toContain('Org A internal note.');
+        expect($bodies)->not->toContain('Org B internal strategy discussion.');
+    });
+
+    it('prevents organization_id tampering on update to move tickets', function () {
+        $ticketA = Ticket::factory()->for($this->orgA)->create();
+
+        putJson("/api/tickets/{$ticketA->id}", [
+            'subject' => 'Updated title',
+            'organization_id' => $this->orgB->id,
+        ])
+            ->assertOk();
+
+        assertDatabaseHas('tickets', [
+            'id' => $ticketA->id,
+            'organization_id' => $this->orgA->id,
+            'subject' => 'Updated title',
+        ]);
+    });
+
+    it('prevents assigning a cross-org agent during ticket update', function () {
+        $ticketA = Ticket::factory()->for($this->orgA)->create();
+        $agentB = User::factory()->for($this->orgB)->agent()->create();
+
+        putJson("/api/tickets/{$ticketA->id}", [
+            'assignee_id' => $agentB->id,
+        ])
+            ->assertUnprocessable()
+            ->assertJsonValidationErrors(['assignee_id']);
     });
 });
