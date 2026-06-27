@@ -9,38 +9,47 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TicketFactory extends Factory
 {
-    protected $model = Ticket::class;
-
     public function definition(): array
     {
+        $status = fake()->randomElement(Ticket::STATUSES);
+        $isResolved = in_array($status, [Ticket::STATUS_RESOLVED, Ticket::STATUS_CLOSED]);
+
         return [
             'organization_id' => Organization::factory(),
-            'agent_id' => null,
-            'subject' => fake()->sentence(),
+            'requester_id' => User::factory(),
+            'assignee_id' => null,
+            'ticket_number' => 'TKT-' . strtoupper(fake()->unique()->bothify('??-####')),
+            'title' => fake()->sentence(4),
             'description' => fake()->paragraph(),
-            'status' => fake()->randomElement(['open', 'in_progress', 'resolved', 'closed']),
-            'priority' => fake()->randomElement(['low', 'medium', 'high', 'urgent']),
+            'status' => $status,
+            'priority' => fake()->randomElement(Ticket::PRIORITIES),
+            'category' => fake()->optional()->randomElement(['billing', 'technical', 'general', 'feature']),
+            'sla_due_at' => $isResolved ? null : fake()->dateTimeBetween('-2 days', '+3 days'),
+            'resolved_at' => $isResolved ? fake()->dateTimeThisMonth() : null,
         ];
     }
 
-    /**
-     * Assign the ticket to a specific agent.
-     */
-    public function assignedTo(User $agent): static
+    public function assigned(): static
     {
         return $this->state(fn (array $attributes) => [
-            'agent_id' => $agent->id,
-            'organization_id' => $agent->organization_id,
+            'assignee_id' => User::factory()->for(
+                Organization::find($attributes['organization_id']) ?? Organization::factory(),
+                'organization'
+            )->create(),
         ]);
     }
 
-    /**
-     * Create an unassigned ticket.
-     */
-    public function unassigned(): static
+    public function breached(): static
     {
-        return $this->state(fn (array $attributes) => [
-            'agent_id' => null,
+        return $this->state(fn () => [
+            'sla_due_at' => now()->subHours(3),
+        ]);
+    }
+
+    public function atRisk(): static
+    {
+        return $this->state(fn () => [
+            'sla_due_at' => now()->addMinutes(rand(5, 110)),
         ]);
     }
 }
