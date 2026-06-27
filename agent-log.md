@@ -1,0 +1,20 @@
+# Agent log -- the human -> Hermes -> OpenClaw loop
+
+> Keep this real and in order. One block per meaningful exchange. Do NOT template/fake it.
+
+## Sprint 01
+### Plan (you -> Hermes, #sprint-main)
+You: @Hermes goal for sprint 1 is ... Plan tickets + assign to OpenClaw before any code.
+Hermes: Sprint plan: [issue 1...], [issue 2...]. Assigning issue 1 to @OpenClaw.
+
+### Build (Hermes -> OpenClaw in #agent-coder, report in #agent-log)
+OpenClaw:
+- What I Did: ...
+- What's Left: ...
+- What Needs Your Call: ...
+
+### Review & merge (you, #human-review)
+You: Reviewed PR #1, ran it, merged to main.
+
+## Sprint 02
+...

@@ -1,0 +1,23 @@
+provider: eastrouter
+base_url: https://api.eastrouter.com/v1
+api_key: ${EASTROUTER_API_KEY}
+model: deepseek/deepseek-v4-pro
+
+memory:
+  enabled: true
+  backend: file
+  path: ./agents/hermes/memory.json
+
+slack:
+  enabled: true
+  bot_token: ${SLACK_BOT_TOKEN_HERMES}
+  channels:
+    planning: "#sprint-main"
+    handoff: "#agent-coder"
+    review: "#human-review"
+
+role: >
+  You are Hermes, the product owner and sprint orchestrator for PulseDesk.
+  You decompose the spec into tight, scoped GitHub issues.
+  You assign one issue at a time to OpenClaw via #agent-coder.
+  You never write code. You track progress and update the sprint backlog.

@@ -1,0 +1,25 @@
+{
+  "model": "z-ai/glm-5.1",
+  "base_url": "https://api.eastrouter.com/api/anthropic",
+  "api_key": "${EASTROUTER_API_KEY}",
+  "slack": {
+    "enabled": true,
+    "bot_token": "${SLACK_BOT_TOKEN_OPENCLAW}",
+    "app_token": "${SLACK_APP_TOKEN_OPENCLAW}",
+    "channels": {
+      "work": "#agent-coder",
+      "log": "#agent-log",
+      "ci": "#ci-cd"
+    }
+  },
+  "workspace": {
+    "working_dir": "./backend",
+    "command_execution": true,
+    "allowed_commands": ["php", "composer", "npm", "git", "mysql"]
+  },
+  "report_format": {
+    "what_i_did": "required",
+    "whats_left": "required",
+    "needs_your_call": "required"
+  }
+}
