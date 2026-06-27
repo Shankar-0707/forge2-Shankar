@@ -3,59 +3,56 @@
   "tasks": [
     {
       "id": 1,
-      "title": "Frontend Scaffold & API Client",
-      "description": "Initialize React 19 + Vite + Tailwind CSS in frontend/. Setup react-router-dom, and implement Axios API client with Sanctum CSRF handling, token saving, and organization context headers.",
+      "title": "React & Tailwind Scaffold",
+      "description": "Initialize Vite, React 19, and Tailwind CSS in the frontend folder. Setup package.json, vite.config.js, tailwind.config.js, index.html, and configure react-router-dom for application routing.",
       "files": [
         "frontend/package.json",
         "frontend/vite.config.js",
         "frontend/tailwind.config.js",
         "frontend/index.html",
         "frontend/src/main.jsx",
-        "frontend/src/App.jsx",
-        "frontend/src/api/client.js"
+        "frontend/src/App.jsx"
       ]
     },
     {
       "id": 2,
-      "title": "Authentication & Organization UI",
-      "description": "Build Login and Registration screens. Registration must include fields for creating a new Organization (tenant) alongside the initial Admin user.",
+      "title": "API Client & Auth UI",
+      "description": "Create Sanctum-compatible API client with Axios handling CSRF, auth tokens, and organization headers. Build Login and Registration (with Organization creation) screens.",
       "files": [
+        "frontend/src/api/client.js",
         "frontend/src/context/AuthContext.jsx",
         "frontend/src/pages/Login.jsx",
-        "frontend/src/pages/Register.jsx",
-        "frontend/src/components/auth/AuthLayout.jsx"
+        "frontend/src/pages/Register.jsx"
       ]
     },
     {
       "id": 3,
-      "title": "Tickets Dashboard & SLA Indicators",
-      "description": "Create a dashboard listing tickets with filters (status, priority, assignee), text search, and visual SLA countdown timers or 'Breached' badges.",
+      "title": "Tickets Dashboard",
+      "description": "Build a dashboard with ticket list/board view. Add filters for status, priority, and assignee, text search, and visual SLA countdown/breach indicators.",
       "files": [
         "frontend/src/pages/Dashboard.jsx",
-        "frontend/src/components/tickets/TicketList.jsx",
-        "frontend/src/components/tickets/TicketFilters.jsx",
-        "frontend/src/components/tickets/SlaBadge.jsx"
+        "frontend/src/components/TicketCard.jsx",
+        "frontend/src/components/TicketFilters.jsx"
       ]
     },
     {
       "id": 4,
-      "title": "Ticket Details & Threaded Conversation UI",
-      "description": "Build the ticket detail view showing metadata, audit trail activity log, threaded comments, and a form to post public replies or internal notes.",
+      "title": "Ticket Details & Conversation UI",
+      "description": "Create ticket detail panel showing metadata, activity log, threaded comments. Include a form to post public replies or internal notes.",
       "files": [
         "frontend/src/pages/TicketDetails.jsx",
-        "frontend/src/components/tickets/TicketSidebar.jsx",
-        "frontend/src/components/tickets/ActivityLog.jsx",
-        "frontend/src/components/tickets/CommentThread.jsx",
-        "frontend/src/components/tickets/ReplyForm.jsx"
+        "frontend/src/components/ActivityLog.jsx",
+        "frontend/src/components/ConversationThread.jsx",
+        "frontend/src/components/ReplyForm.jsx"
       ]
     },
     {
       "id": 5,
-      "title": "Ticket Actions & Metrics Stats Panel",
-      "description": "Implement 'Claim Ticket' and reassignment actions on the detail page, and create a metrics summary widget for SLA breach rates, response times, and open ticket counts.",
+      "title": "Ticket Actions & Stats Panel",
+      "description": "Implement claim/reassign actions in the ticket view. Add a metrics summary widget displaying SLA breach rates, average first-response times, and open ticket counts.",
       "files": [
-        "frontend/src/components/tickets/TicketActions.jsx",
-        "frontend/src/components/dashboard/StatsWidget.jsx"
+        "frontend/src/components/TicketActions.jsx",
+        "frontend/src/components/StatsWidget.jsx"
       ]
     }
   ],

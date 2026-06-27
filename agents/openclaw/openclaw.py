@@ -40,6 +40,8 @@ def run(cmd, cwd=None):
 # ```php
 # ...code...
 # ```
+REPO_ROOT = os.path.dirname(WORKING_DIR)
+
 def parse_and_write_files(llm_output):
     # Split case-insensitively and handle markdown formatting around the FILE prefix
     segments = re.split(r'(?i)(?:\*\*|###)?\s*FILE:\s*', llm_output)
@@ -54,7 +56,11 @@ def parse_and_write_files(llm_output):
         content_match = re.search(r'```(?:\w+)?\n(.*?)```', segment, re.DOTALL)
         if content_match:
             content = content_match.group(1)
-            full_path = os.path.join(WORKING_DIR, filepath)
+            # Route to either frontend, backend, or root depending on prefix
+            if filepath.startswith("backend/") or filepath.startswith("frontend/"):
+                full_path = os.path.join(REPO_ROOT, filepath)
+            else:
+                full_path = os.path.join(WORKING_DIR, filepath)
             os.makedirs(os.path.dirname(full_path), exist_ok=True)
             with open(full_path, "w", encoding="utf-8") as f:
                 f.write(content.strip() + "\n")
