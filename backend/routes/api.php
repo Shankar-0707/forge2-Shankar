@@ -1,14 +1,18 @@
 <?php
 
-use App\Http\Controllers\V1\TicketActivityController;
+use App\Http\Controllers\V1\TicketAssignmentController;
+use App\Http\Controllers\V1\TicketController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
+Route::middleware('auth:sanctum')->prefix('v1')->name('api.v1.')->group(function () {
 
-    // ── Activity / Audit Trail ──────────────────────────────────────
-    Route::get('tickets/{ticket}/activity', [TicketActivityController::class, 'index'])
-        ->name('v1.tickets.activity.index');
+    // Tickets — CRUD
+    Route::apiResource('tickets', TicketController::class);
 
-    // ... existing routes (tickets CRUD, comments, etc.)
+    // Ticket Assignment
+    Route::post('tickets/{ticket}/assign', [TicketAssignmentController::class, 'assign'])
+        ->name('tickets.assign');
 
+    Route::post('tickets/{ticket}/claim', [TicketAssignmentController::class, 'claim'])
+        ->name('tickets.claim');
 });

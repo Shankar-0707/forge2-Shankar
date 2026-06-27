@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -17,8 +18,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
         'organization_id',
+        'role',
     ];
 
     protected $hidden = [
@@ -28,45 +29,47 @@ class User extends Authenticatable
 
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password'          => 'hashed',
+        'password' => 'hashed',
+        'role' => Role::class,
     ];
 
-    // ── Relationships ──────────────────────────────────────
-
+    /*
+    |--------------------------------------------------------------------------
+    | Relationships
+    |--------------------------------------------------------------------------
+    */
     public function organization(): BelongsTo
     {
         return $this->belongsTo(Organization::class);
     }
 
-    public function tickets(): HasMany
+    public function assignedTickets(): HasMany
     {
-        return $this->hasMany(Ticket::class);
+        return $this->hasMany(Ticket::class, 'agent_id');
     }
 
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class);
-    }
-
-    // ── Role Helpers ───────────────────────────────────────
-
+    /*
+    |--------------------------------------------------------------------------
+    | Role Helpers
+    |--------------------------------------------------------------------------
+    */
     public function isAdmin(): bool
     {
-        return $this->role === 'admin';
+        return $this->role === Role::Admin;
     }
 
     public function isAgent(): bool
     {
-        return $this->role === 'agent';
+        return $this->role === Role::Agent;
     }
 
-    public function isStaff(): bool
+    public function isAgentOrAdmin(): bool
     {
-        return $this->isAdmin() || $this->isAgent();
+        return in_array($this->role, [Role::Admin, Role::Agent]);
     }
 
-    public function isCustomer(): bool
+    public function canBeAssignedTickets(): bool
     {
-        return $this->role === 'customer';
+        return $this->isAgentOrAdmin();
     }
 }

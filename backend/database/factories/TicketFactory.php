@@ -2,29 +2,45 @@
 
 namespace Database\Factories;
 
+use App\Models\Organization;
+use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/** @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ticket> */
 class TicketFactory extends Factory
 {
+    protected $model = Ticket::class;
+
     public function definition(): array
     {
         return [
-            'organization_id' => \App\Models\Organization::factory(),
-            'requester_id' => User::factory(),
-            'assignee_id' => null,
-            'subject' => $this->faker->sentence(),
-            'description' => $this->faker->paragraph(),
-            'status' => 'open',
-            'priority' => $this->faker->randomElement(['low', 'medium', 'high', 'urgent']),
-            'response_at' => null,
-            'resolved_at' => null,
+            'organization_id' => Organization::factory(),
+            'agent_id' => null,
+            'subject' => fake()->sentence(),
+            'description' => fake()->paragraph(),
+            'status' => fake()->randomElement(['open', 'in_progress', 'resolved', 'closed']),
+            'priority' => fake()->randomElement(['low', 'medium', 'high', 'urgent']),
         ];
     }
 
-    public function priority(string $priority): static
+    /**
+     * Assign the ticket to a specific agent.
+     */
+    public function assignedTo(User $agent): static
     {
-        return $this->state(['priority' => $priority]);
+        return $this->state(fn (array $attributes) => [
+            'agent_id' => $agent->id,
+            'organization_id' => $agent->organization_id,
+        ]);
+    }
+
+    /**
+     * Create an unassigned ticket.
+     */
+    public function unassigned(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'agent_id' => null,
+        ]);
     }
 }
