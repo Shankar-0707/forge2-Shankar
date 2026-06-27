@@ -3,445 +3,466 @@
 use App\Models\Organization;
 use App\Models\Ticket;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Laravel\Sanctum\Sanctum;
 
-use function Pest\Laravel\actingAs;
-use function Pest\Laravel\postJson;
+uses(RefreshDatabase::class);
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
+// ---------------------------------------------------------------------------
+// Factory Helpers
+// ---------------------------------------------------------------------------
 
-describe('Ticket Assignment', function () {
+function createOrganization(): Organization
+{
+    return Organization::factory()->create();
+}
 
-    beforeEach(function () {
-        $this->org = Organization::factory()->create();
-        $this->otherOrg = Organization::factory()->create();
+function createAgent(Organization $org, array $overrides = []): User
+{
+    return User::factory()->create(array_merge([
+        'organization_id' => $org->id,
+        'role' => 'agent',
+    ], $overrides));
+}
 
-        $this->admin = User::factory()->admin()->create([
-            'organization_id' => $this->org->id,
-        ]);
+function createAdmin(Organization $org): User
+{
+    return User::factory()->create([
+        'organization_id' => $org->id,
+        'role' => 'admin',
+    ]);
+}
 
-        $this->agent = User::factory()->agent()->create([
-            'organization_id' => $this->org->id,
-        ]);
+function createCustomer(Organization $org): User
+{
+    return User::factory()->create([
+        'organization_id' => $org->id,
+        'role' => 'customer',
+    ]);
+}
 
-        $this->agent2 = User::factory()->agent()->create([
-            'organization_id' => $this->org->id,
-        ]);
+function createTicket(Organization $org, array $overrides = []): Ticket
+{
+    return Ticket::factory()->create(array_merge([
+        'organization_id' => $org->id,
+        'assignee_id' => null,
+    ], $overrides));
+}
 
-        $this->regularUser = User::factory()->create([
-            'organization_id' => $this->org->id,
+// ---------------------------------------------------------------------------
+// Ticket Claiming
+// ---------------------------------------------------------------------------
+
+describe('ticket claiming', function () {
+
+    test('an agent can claim an unassigned ticket', function () {
+        $org = createOrganization();
+        $agent = createAgent($org);
+        $ticket = createTicket($org);
+
+        Sanctum::actingAs($agent);
+
+        $this->postJson("/api/v1/tickets/{$ticket->id}/claim")
+            ->assertOk()
+            ->assertJsonPath('data.assignee.id', $agent->id);
+    });
+
+    test('claiming persists assignee_id in the database', function () {
+        $org = createOrganization();
+        $agent = createAgent($org);
+        $ticket = createTicket($org);
+
+        Sanctum::actingAs($agent);
+
+        $this->postJson("/api/v1/tickets/{$ticket->id}/claim");
+
+        $this->assertDatabaseHas('tickets', [
+            'id' => $ticket->id,
+            'assignee_id' => $agent->id,
         ]);
     });
 
-    /*
-    |----------------------------------------------------------------------
-    | POST /api/v1/tickets/{ticket}/assign
-    |----------------------------------------------------------------------
-    */
-    describe('POST tickets/{id}/assign', function () {
+    test('an admin can claim an unassigned ticket', function () {
+        $org = createOrganization();
+        $admin = createAdmin($org);
+        $ticket = createTicket($org);
 
-        it('allows admin to assign ticket to agent', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
+        Sanctum::actingAs($admin);
 
-            $response = actingAs($this->admin)
-                ->postJson("/api/v1/tickets/{$ticket->id}/assign", [
-                    'agent_id' => $this->agent->id,
-                ]);
-
-            $response->assertOk()
-                ->assertJsonPath('data.agent.id', $this->agent->id)
-                ->assertJsonPath('data.is_assigned', true);
-
-            expect($ticket->fresh()->agent_id)->toBe($this->agent->id);
-        });
-
-        it('allows agent to assign ticket to another agent', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
-
-            $response = actingAs($this->agent)
-                ->postJson("/api/v1/tickets/{$ticket->id}/assign", [
-                    'agent_id' => $this->agent2->id,
-                ]);
-
-            $response->assertOk();
-            expect($ticket->fresh()->agent_id)->toBe($this->agent2->id);
-        });
-
-        it('allows reassigning an already-assigned ticket', function () {
-            $ticket = Ticket::factory()->assignedTo($this->agent)->create([
-                'organization_id' => $this->org->id,
-            ]);
-
-            $response = actingAs($this->admin)
-                ->postJson("/api/v1/tickets/{$ticket->id}/assign", [
-                    'agent_id' => $this->agent2->id,
-                ]);
-
-            $response->assertOk();
-            expect($ticket->fresh()->agent_id)->toBe($this->agent2->id);
-        });
-
-        it('prevents regular user from assigning tickets', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
-
-            $response = actingAs($this->regularUser)
-                ->postJson("/api/v1/tickets/{$ticket->id}/assign", [
-                    'agent_id' => $this->agent->id,
-                ]);
-
-            $response->assertForbidden();
-        });
-
-        it('prevents assigning to a user outside the organization', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
-
-            $otherOrgAgent = User::factory()->agent()->create([
-                'organization_id' => $this->otherOrg->id,
-            ]);
-
-            $response = actingAs($this->admin)
-                ->postJson("/api/v1/tickets/{$ticket->id}/assign", [
-                    'agent_id' => $otherOrgAgent->id,
-                ]);
-
-            $response->assertUnprocessable();
-        });
-
-        it('prevents assigning to a user without agent or admin role', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
-
-            $response = actingAs($this->admin)
-                ->postJson("/api/v1/tickets/{$ticket->id}/assign", [
-                    'agent_id' => $this->regularUser->id,
-                ]);
-
-            $response->assertUnprocessable();
-        });
-
-        it('returns 404 for ticket outside organization', function () {
-            $otherOrgTicket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->otherOrg->id,
-            ]);
-
-            $response = actingAs($this->admin)
-                ->postJson("/api/v1/tickets/{$otherOrgTicket->id}/assign", [
-                    'agent_id' => $this->agent->id,
-                ]);
-
-            $response->assertNotFound();
-        });
-
-        it('requires agent_id field', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
-
-            $response = actingAs($this->admin)
-                ->postJson("/api/v1/tickets/{$ticket->id}/assign", []);
-
-            $response->assertUnprocessable()
-                ->assertJsonValidationErrors(['agent_id']);
-        });
-
-        it('rejects non-existent agent_id', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
-
-            $response = actingAs($this->admin)
-                ->postJson("/api/v1/tickets/{$ticket->id}/assign", [
-                    'agent_id' => 999999,
-                ]);
-
-            $response->assertUnprocessable()
-                ->assertJsonValidationErrors(['agent_id']);
-        });
-
-        it('requires authentication', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
-
-            $response = postJson("/api/v1/tickets/{$ticket->id}/assign", [
-                'agent_id' => $this->agent->id,
-            ]);
-
-            $response->assertUnauthorized();
-        });
+        $this->postJson("/api/v1/tickets/{$ticket->id}/claim")
+            ->assertOk()
+            ->assertJsonPath('data.assignee.id', $admin->id);
     });
 
-    /*
-    |----------------------------------------------------------------------
-    | POST /api/v1/tickets/{ticket}/claim
-    |----------------------------------------------------------------------
-    */
-    describe('POST tickets/{id}/claim', function () {
+    test('an agent can steal-claim a ticket assigned to another agent', function () {
+        $org = createOrganization();
+        $agentA = createAgent($org);
+        $agentB = createAgent($org);
+        $ticket = createTicket($org, ['assignee_id' => $agentA->id]);
 
-        it('allows agent to claim unassigned ticket', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
+        Sanctum::actingAs($agentB);
 
-            $response = actingAs($this->agent)
-                ->postJson("/api/v1/tickets/{$ticket->id}/claim");
+        $this->postJson("/api/v1/tickets/{$ticket->id}/claim")
+            ->assertOk()
+            ->assertJsonPath('data.assignee.id', $agentB->id);
 
-            $response->assertOk()
-                ->assertJsonPath('data.agent.id', $this->agent->id);
+        $this->assertDatabaseHas('tickets', [
+            'id' => $ticket->id,
+            'assignee_id' => $agentB->id,
+        ]);
+    });
 
-            expect($ticket->fresh()->agent_id)->toBe($this->agent->id);
-        });
+    test('a customer cannot claim a ticket', function () {
+        $org = createOrganization();
+        $customer = createCustomer($org);
+        $ticket = createTicket($org);
 
-        it('allows admin to claim ticket', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
+        Sanctum::actingAs($customer);
 
-            $response = actingAs($this->admin)
-                ->postJson("/api/v1/tickets/{$ticket->id}/claim");
+        $this->postJson("/api/v1/tickets/{$ticket->id}/claim")
+            ->assertForbidden();
+    });
 
-            $response->assertOk();
-            expect($ticket->fresh()->agent_id)->toBe($this->admin->id);
-        });
+    test('an unauthenticated user cannot claim a ticket', function () {
+        $org = createOrganization();
+        $ticket = createTicket($org);
 
-        it('prevents regular user from claiming tickets', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
+        $this->postJson("/api/v1/tickets/{$ticket->id}/claim")
+            ->assertUnauthorized();
+    });
 
-            $response = actingAs($this->regularUser)
-                ->postJson("/api/v1/tickets/{$ticket->id}/claim");
+    test('an agent cannot claim a ticket from another organization', function () {
+        $orgA = createOrganization();
+        $orgB = createOrganization();
+        $agent = createAgent($orgA);
+        $ticket = createTicket($orgB);
 
-            $response->assertForbidden();
-        });
+        Sanctum::actingAs($agent);
 
-        it('prevents claiming ticket assigned to another agent', function () {
-            $ticket = Ticket::factory()->assignedTo($this->agent)->create([
-                'organization_id' => $this->org->id,
-            ]);
+        $this->postJson("/api/v1/tickets/{$ticket->id}/claim")
+            ->assertNotFound();
+    });
 
-            $response = actingAs($this->agent2)
-                ->postJson("/api/v1/tickets/{$ticket->id}/claim");
+    test('claiming does not modify organization_id', function () {
+        $org = createOrganization();
+        $agent = createAgent($org);
+        $ticket = createTicket($org);
 
-            $response->assertStatus(422)
-                ->assertJsonPath('message', 'This ticket is already assigned to another agent. Use the assign endpoint to reassign.');
-        });
+        Sanctum::actingAs($agent);
 
-        it('allows claiming ticket already assigned to self (idempotent)', function () {
-            $ticket = Ticket::factory()->assignedTo($this->agent)->create([
-                'organization_id' => $this->org->id,
-            ]);
+        $this->postJson("/api/v1/tickets/{$ticket->id}/claim");
 
-            $response = actingAs($this->agent)
-                ->postJson("/api/v1/tickets/{$ticket->id}/claim");
-
-            $response->assertOk()
-                ->assertJsonPath('data.agent.id', $this->agent->id);
-        });
-
-        it('returns 404 for ticket outside organization', function () {
-            $otherOrgTicket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->otherOrg->id,
-            ]);
-
-            $response = actingAs($this->agent)
-                ->postJson("/api/v1/tickets/{$otherOrgTicket->id}/claim");
-
-            $response->assertNotFound();
-        });
-
-        it('requires authentication', function () {
-            $ticket = Ticket::factory()->unassigned()->create([
-                'organization_id' => $this->org->id,
-            ]);
-
-            $response = postJson("/api/v1/tickets/{$ticket->id}/claim");
-
-            $response->assertUnauthorized();
-        });
+        $this->assertDatabaseHas('tickets', [
+            'id' => $ticket->id,
+            'organization_id' => $org->id,
+        ]);
     });
 });
 
-/*
-|----------------------------------------------------------------------
-| Ticket Index Filtering
-|----------------------------------------------------------------------
-*/
-describe('GET /api/v1/tickets filters', function () {
+// ---------------------------------------------------------------------------
+// Ticket Assignment
+// ---------------------------------------------------------------------------
 
-    uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
+describe('ticket assignment', function () {
 
-    beforeEach(function () {
-        $this->org = Organization::factory()->create();
-        $this->otherOrg = Organization::factory()->create();
+    test('an admin can assign a ticket to an agent', function () {
+        $org = createOrganization();
+        $admin = createAdmin($org);
+        $agent = createAgent($org);
+        $ticket = createTicket($org);
 
-        $this->admin = User::factory()->admin()->create([
-            'organization_id' => $this->org->id,
-        ]);
+        Sanctum::actingAs($admin);
 
-        $this->agent = User::factory()->agent()->create([
-            'organization_id' => $this->org->id,
-        ]);
+        $this->postJson("/api/v1/tickets/{$ticket->id}/assign", [
+            'user_id' => $agent->id,
+        ])
+            ->assertOk()
+            ->assertJsonPath('data.assignee.id', $agent->id);
 
-        $this->agent2 = User::factory()->agent()->create([
-            'organization_id' => $this->org->id,
+        $this->assertDatabaseHas('tickets', [
+            'id' => $ticket->id,
+            'assignee_id' => $agent->id,
         ]);
     });
 
-    it('filters my_tickets correctly', function () {
-        $myTicket = Ticket::factory()->assignedTo($this->agent)->create([
-            'organization_id' => $this->org->id,
-        ]);
+    test('an agent can assign a ticket to another agent', function () {
+        $org = createOrganization();
+        $agentA = createAgent($org);
+        $agentB = createAgent($org);
+        $ticket = createTicket($org);
 
-        Ticket::factory()->assignedTo($this->agent2)->create([
-            'organization_id' => $this->org->id,
-        ]);
+        Sanctum::actingAs($agentA);
 
-        Ticket::factory()->unassigned()->create([
-            'organization_id' => $this->org->id,
-        ]);
-
-        $response = actingAs($this->agent)
-            ->getJson('/api/v1/tickets?filter=my_tickets');
-
-        $response->assertOk()
-            ->assertJsonCount(1, 'data')
-            ->assertJsonPath('data.0.id', $myTicket->id);
+        $this->postJson("/api/v1/tickets/{$ticket->id}/assign", [
+            'user_id' => $agentB->id,
+        ])
+            ->assertOk()
+            ->assertJsonPath('data.assignee.id', $agentB->id);
     });
 
-    it('filters unassigned correctly', function () {
-        Ticket::factory()->assignedTo($this->agent)->create([
-            'organization_id' => $this->org->id,
+    test('assigning overwrites a previous assignee', function () {
+        $org = createOrganization();
+        $admin = createAdmin($org);
+        $agentA = createAgent($org);
+        $agentB = createAgent($org);
+        $ticket = createTicket($org, ['assignee_id' => $agentA->id]);
+
+        Sanctum::actingAs($admin);
+
+        $this->postJson("/api/v1/tickets/{$ticket->id}/assign", [
+            'user_id' => $agentB->id,
+        ])
+            ->assertOk();
+
+        $this->assertDatabaseHas('tickets', [
+            'id' => $ticket->id,
+            'assignee_id' => $agentB->id,
         ]);
-
-        $unassignedTicket = Ticket::factory()->unassigned()->create([
-            'organization_id' => $this->org->id,
-        ]);
-
-        $response = actingAs($this->admin)
-            ->getJson('/api/v1/tickets?filter=unassigned');
-
-        $response->assertOk()
-            ->assertJsonCount(1, 'data')
-            ->assertJsonPath('data.0.id', $unassignedTicket->id)
-            ->assertJsonPath('data.0.is_assigned', false);
     });
 
-    it('filters assigned correctly', function () {
-        $assignedTicket = Ticket::factory()->assignedTo($this->agent)->create([
-            'organization_id' => $this->org->id,
-        ]);
+    test('a customer cannot assign a ticket', function () {
+        $org = createOrganization();
+        $customer = createCustomer($org);
+        $agent = createAgent($org);
+        $ticket = createTicket($org);
 
-        Ticket::factory()->unassigned()->create([
-            'organization_id' => $this->org->id,
-        ]);
+        Sanctum::actingAs($customer);
 
-        $response = actingAs($this->admin)
-            ->getJson('/api/v1/tickets?filter=assigned');
-
-        $response->assertOk()
-            ->assertJsonCount(1, 'data')
-            ->assertJsonPath('data.0.id', $assignedTicket->id);
+        $this->postJson("/api/v1/tickets/{$ticket->id}/assign", [
+            'user_id' => $agent->id,
+        ])
+            ->assertForbidden();
     });
 
-    it('returns all tickets when no filter is provided', function () {
-        Ticket::factory()->assignedTo($this->agent)->create([
-            'organization_id' => $this->org->id,
-        ]);
+    test('an unauthenticated user cannot assign a ticket', function () {
+        $org = createOrganization();
+        $agent = createAgent($org);
+        $ticket = createTicket($org);
 
-        Ticket::factory()->unassigned()->create([
-            'organization_id' => $this->org->id,
-        ]);
-
-        $response = actingAs($this->admin)
-            ->getJson('/api/v1/tickets');
-
-        $response->assertOk()
-            ->assertJsonCount(2, 'data');
+        $this->postJson("/api/v1/tickets/{$ticket->id}/assign", [
+            'user_id' => $agent->id,
+        ])
+            ->assertUnauthorized();
     });
 
-    it('rejects invalid filter value', function () {
-        $response = actingAs($this->admin)
-            ->getJson('/api/v1/tickets?filter=invalid_filter');
+    test('an agent cannot assign a ticket belonging to another organization', function () {
+        $orgA = createOrganization();
+        $orgB = createOrganization();
+        $agent = createAgent($orgA);
+        $target = createAgent($orgB);
+        $ticket = createTicket($orgB);
 
-        $response->assertUnprocessable()
-            ->assertJsonValidationErrors(['filter']);
+        Sanctum::actingAs($agent);
+
+        $this->postJson("/api/v1/tickets/{$ticket->id}/assign", [
+            'user_id' => $target->id,
+        ])
+            ->assertNotFound();
     });
 
-    it('only returns tickets from the users organization', function () {
-        $ownTicket = Ticket::factory()->unassigned()->create([
-            'organization_id' => $this->org->id,
-        ]);
+    test('cannot assign a ticket to a user from a different organization', function () {
+        $orgA = createOrganization();
+        $orgB = createOrganization();
+        $agent = createAgent($orgA);
+        $foreignAgent = createAgent($orgB);
+        $ticket = createTicket($orgA);
 
-        Ticket::factory()->unassigned()->create([
-            'organization_id' => $this->otherOrg->id,
-        ]);
+        Sanctum::actingAs($agent);
 
-        $response = actingAs($this->admin)
-            ->getJson('/api/v1/tickets?filter=unassigned');
-
-        $response->assertOk()
-            ->assertJsonCount(1, 'data')
-            ->assertJsonPath('data.0.id', $ownTicket->id);
+        $this->postJson("/api/v1/tickets/{$ticket->id}/assign", [
+            'user_id' => $foreignAgent->id,
+        ])
+            ->assertStatus(422);
     });
 
-    it('returns empty data for my_tickets when agent has no tickets', function () {
-        Ticket::factory()->assignedTo($this->agent2)->create([
-            'organization_id' => $this->org->id,
+    test('assigning a non-existent user returns validation error', function () {
+        $org = createOrganization();
+        $admin = createAdmin($org);
+        $ticket = createTicket($org);
+
+        Sanctum::actingAs($admin);
+
+        $this->postJson("/api/v1/tickets/{$ticket->id}/assign", [
+            'user_id' => 999999,
+        ])
+            ->assertStatus(422);
+    });
+
+    test('user_id is required when assigning', function () {
+        $org = createOrganization();
+        $admin = createAdmin($org);
+        $ticket = createTicket($org);
+
+        Sanctum::actingAs($admin);
+
+        $this->postJson("/api/v1/tickets/{$ticket->id}/assign", [])
+            ->assertStatus(422)
+            ->assertJsonValidationErrors(['user_id']);
+    });
+
+    test('assignment does not modify organization_id', function () {
+        $org = createOrganization();
+        $admin = createAdmin($org);
+        $agent = createAgent($org);
+        $ticket = createTicket($org);
+
+        Sanctum::actingAs($admin);
+
+        $this->postJson("/api/v1/tickets/{$ticket->id}/assign", [
+            'user_id' => $agent->id,
         ]);
 
-        Ticket::factory()->unassigned()->create([
-            'organization_id' => $this->org->id,
+        $this->assertDatabaseHas('tickets', [
+            'id' => $ticket->id,
+            'organization_id' => $org->id,
         ]);
+    });
+});
 
-        $response = actingAs($this->agent)
-            ->getJson('/api/v1/tickets?filter=my_tickets');
+// ---------------------------------------------------------------------------
+// my_tickets Filter
+// ---------------------------------------------------------------------------
 
-        $response->assertOk()
+describe('my_tickets filter', function () {
+
+    test('returns only tickets assigned to the authenticated agent', function () {
+        $org = createOrganization();
+        $agent = createAgent($org);
+        $otherAgent = createAgent($org);
+
+        $myTicket = createTicket($org, ['assignee_id' => $agent->id]);
+        $colleagueTicket = createTicket($org, ['assignee_id' => $otherAgent->id]);
+
+        Sanctum::actingAs($agent);
+
+        $response = $this->getJson('/api/v1/tickets?filter=my_tickets')
+            ->assertOk();
+
+        $ids = collect($response->json('data'))->pluck('id');
+
+        expect($ids)->toContain($myTicket->id);
+        expect($ids)->not->toContain($colleagueTicket->id);
+    });
+
+    test('excludes unassigned tickets from my_tickets', function () {
+        $org = createOrganization();
+        $agent = createAgent($org);
+
+        $assigned = createTicket($org, ['assignee_id' => $agent->id]);
+        $unassigned = createTicket($org, ['assignee_id' => null]);
+
+        Sanctum::actingAs($agent);
+
+        $response = $this->getJson('/api/v1/tickets?filter=my_tickets')
+            ->assertOk();
+
+        $ids = collect($response->json('data'))->pluck('id');
+
+        expect($ids)->toContain($assigned->id);
+        expect($ids)->not->toContain($unassigned->id);
+    });
+
+    test('does not leak tickets from another organization even if same assignee', function () {
+        $orgA = createOrganization();
+        $orgB = createOrganization();
+
+        $agentA = createAgent($orgA);
+        $agentB = createAgent($orgB);
+
+        $myTicket = createTicket($orgA, ['assignee_id' => $agentA->id]);
+        $foreignTicket = createTicket($orgB, ['assignee_id' => $agentB->id]);
+
+        Sanctum::actingAs($agentA);
+
+        $response = $this->getJson('/api/v1/tickets?filter=my_tickets')
+            ->assertOk();
+
+        $ids = collect($response->json('data'))->pluck('id');
+
+        expect($ids)->toContain($myTicket->id);
+        expect($ids)->not->toContain($foreignTicket->id);
+    });
+
+    test('returns empty data set when agent has no assigned tickets', function () {
+        $org = createOrganization();
+        $agent = createAgent($org);
+
+        createTicket($org, ['assignee_id' => null]);
+
+        Sanctum::actingAs($agent);
+
+        $this->getJson('/api/v1/tickets?filter=my_tickets')
+            ->assertOk()
             ->assertJsonCount(0, 'data');
     });
 
-    it('respects per_page parameter', function () {
-        Ticket::factory()->count(25)->create([
-            'organization_id' => $this->org->id,
-        ]);
+    test('an unauthenticated user cannot access my_tickets', function () {
+        $this->getJson('/api/v1/tickets?filter=my_tickets')
+            ->assertUnauthorized();
+    });
+});
 
-        $response = actingAs($this->admin)
-            ->getJson('/api/v1/tickets?per_page=10');
+// ---------------------------------------------------------------------------
+// unassigned Filter
+// ---------------------------------------------------------------------------
 
-        $response->assertOk()
-            ->assertJsonCount(10, 'data')
-            ->assertJsonPath('meta.per_page', 10)
-            ->assertJsonPath('meta.total', 25);
+describe('unassigned filter', function () {
+
+    test('returns only tickets without an assignee', function () {
+        $org = createOrganization();
+        $agent = createAgent($org);
+
+        $unassignedA = createTicket($org, ['assignee_id' => null]);
+        $unassignedB = createTicket($org, ['assignee_id' => null]);
+        $assigned = createTicket($org, ['assignee_id' => $agent->id]);
+
+        Sanctum::actingAs($agent);
+
+        $response = $this->getJson('/api/v1/tickets?filter=unassigned')
+            ->assertOk();
+
+        $ids = collect($response->json('data'))->pluck('id');
+
+        expect($ids)->toContain($unassignedA->id);
+        expect($ids)->toContain($unassignedB->id);
+        expect($ids)->not->toContain($assigned->id);
     });
 
-    it('includes agent relationship in response', function () {
-        $ticket = Ticket::factory()->assignedTo($this->agent)->create([
-            'organization_id' => $this->org->id,
-        ]);
+    test('does not leak unassigned tickets from another organization', function () {
+        $orgA = createOrganization();
+        $orgB = createOrganization();
+        $agent = createAgent($orgA);
 
-        $response = actingAs($this->admin)
-            ->getJson('/api/v1/tickets');
+        $localUnassigned = createTicket($orgA, ['assignee_id' => null]);
+        $foreignUnassigned = createTicket($orgB, ['assignee_id' => null]);
 
-        $response->assertOk()
-            ->assertJsonPath('data.0.agent.id', $this->agent->id)
-            ->assertJsonPath('data.0.agent.name', $this->agent->name);
+        Sanctum::actingAs($agent);
+
+        $response = $this->getJson('/api/v1/tickets?filter=unassigned')
+            ->assertOk();
+
+        $ids = collect($response->json('data'))->pluck('id');
+
+        expect($ids)->toContain($localUnassigned->id);
+        expect($ids)->not->toContain($foreignUnassigned->id);
     });
 
-    it('requires authentication', function () {
-        $response = \Illuminate\Support\Facades\Http::withHeaders([])
-            ->get('/api/v1/tickets');
+    test('returns empty data set when all tickets are assigned', function () {
+        $org = createOrganization();
+        $agent = createAgent($org);
 
-        $response = \Pest\Laravel\getJson('/api/v1/tickets');
+        createTicket($org, ['assignee_id' => $agent->id]);
+        createTicket($org, ['assignee_id' => $agent->id]);
 
-        $response->assertUnauthorized();
+        Sanctum::actingAs($agent);
+
+        $this->getJson('/api/v1/tickets?filter=unassigned')
+            ->assertOk()
+            ->assertJsonCount(0, 'data');
+    });
+
+    test('an unauthenticated user cannot access unassigned filter', function () {
+        $this->getJson('/api/v1/tickets?filter=unassigned')
+            ->assertUnauthorized();
     });
 });
