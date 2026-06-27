@@ -1,4 +1,7 @@
-import os, json, requests
+import os
+import json
+import re
+import requests
 from dotenv import load_dotenv
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
@@ -7,124 +10,268 @@ load_dotenv()
 
 app = App(token=os.environ["SLACK_BOT_TOKEN_HERMES"])
 
-# ── memory ──────────────────────────────────────────────
-memory = {"sprint_goal": "", "tasks": [], "current_task_index": 0}
+# --------------------------------------------------
+# Memory
+# --------------------------------------------------
+
+memory = {
+    "sprint_goal": "",
+    "tasks": [],
+    "current_task_index": 0
+}
+
+processed_ts = set()
+
 
 def save_memory():
     os.makedirs("agents/hermes", exist_ok=True)
+
     with open("agents/hermes/memory.json", "w") as f:
         json.dump(memory, f, indent=2)
 
-# ── EastRouter call (DeepSeek for planning) ─────────────
-def call_deepseek(system, user):
+
+# --------------------------------------------------
+# EastRouter
+# --------------------------------------------------
+
+def call_llm(system, user):
     r = requests.post(
         "https://api.eastrouter.com/v1/chat/completions",
-        headers={"Authorization": f"Bearer {os.environ['EASTROUTER_API_KEY']}",
-                 "Content-Type": "application/json"},
-        json={"model": "deepseek/deepseek-v4-pro",
-              "messages": [{"role": "system", "content": system},
-                           {"role": "user",   "content": user}]}
+        headers={
+            "Authorization": f"Bearer {os.environ['EASTROUTER_API_KEY']}",
+            "Content-Type": "application/json"
+        },
+        json={
+            "model": "z-ai/glm-5.1",
+            "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": user}
+            ]
+        },
+        timeout=120
     )
-    return r.json()["choices"][0]["message"]["content"]
 
-# ── resolve channel name from ID ─────────────────────────
+    print("=" * 70)
+    print("[EastRouter] STATUS :", r.status_code)
+    print("[EastRouter] RESPONSE :")
+    print(r.text[:2000])
+    print("=" * 70)
+
+    data = r.json()
+
+    if "choices" not in data:
+        raise Exception(data)
+
+    return data["choices"][0]["message"]["content"]
+
+
+# --------------------------------------------------
+# Slack helpers
+# --------------------------------------------------
+
 def get_channel_name(client, channel_id):
     try:
-        return client.conversations_info(channel=channel_id)["channel"]["name"]
-    except:
+        return client.conversations_info(
+            channel=channel_id
+        )["channel"]["name"]
+    except Exception:
         return ""
 
-# ── assign next task ─────────────────────────────────────
+
+# --------------------------------------------------
+# Assign task
+# --------------------------------------------------
+
 def assign_next_task(client):
+
     idx = memory["current_task_index"]
     tasks = memory["tasks"]
 
     if idx >= len(tasks):
+
         client.chat_postMessage(
             channel="#sprint-main",
-            text="🎉 *Sprint complete!* All tasks done. Post your next sprint goal when ready."
+            text="🎉 Sprint Complete!"
         )
         return
 
     task = tasks[idx]
+
     msg = f"""📋 *Task #{task['id']} — assigned to OpenClaw*
 
 *What to build:* {task['title']}
+
 *Details:* {task['description']}
-*Files to touch:* {', '.join(task.get('files', ['TBD']))}
 
-When done, post to #agent-log with your report and include the word DONE."""
+*Files to touch:* {", ".join(task.get("files", ["TBD"]))}
 
-    client.chat_postMessage(channel="#agent-coder", text=msg)
-    print(f"[Hermes] ✅ Assigned task {idx + 1}: {task['title']}")
+When done, post to #agent-log and include the word DONE.
+"""
 
-# ── listen to all messages ───────────────────────────────
+    client.chat_postMessage(
+        channel="#agent-coder",
+        text=msg
+    )
+
+    print(f"[Hermes] Assigned Task {idx+1}")
+
+
+# --------------------------------------------------
+# Events
+# --------------------------------------------------
+
 @app.event("message")
 def handle_message(event, client):
-    channel_id = event.get("channel", "")
-    text       = event.get("text", "")
-    bot_id     = event.get("bot_id")
-    subtype    = event.get("subtype")
 
-    # ignore edits and deletes
+    ts = event.get("ts", "")
+
+    if ts in processed_ts:
+        return
+
+    processed_ts.add(ts)
+
+    channel_id = event.get("channel", "")
+    text = event.get("text", "")
+    bot_id = event.get("bot_id")
+    subtype = event.get("subtype")
+
     if subtype in ("message_changed", "message_deleted"):
         return
 
     channel_name = get_channel_name(client, channel_id)
 
-    # ── YOU posted a sprint goal in #sprint-main ──────────
+    # ------------------------------------------
+    # Sprint Goal
+    # ------------------------------------------
+
     if channel_name == "sprint-main" and not bot_id:
-        print(f"[Hermes] 📥 Sprint goal received: {text[:80]}")
+
+        text = re.sub(r"<@[A-Z0-9]+>", "", text).strip()
+
+        print("[Hermes] Sprint Goal Received")
+        print(text)
+
         memory["sprint_goal"] = text
         memory["current_task_index"] = 0
 
         client.chat_postMessage(
             channel="#sprint-main",
-            text=f"📝 Got it! Planning sprint for: _{text[:120]}_\nBreaking into tasks..."
+            text=f"📝 Planning sprint...\n\n{text[:120]}"
         )
 
-        plan_json = call_deepseek(
-            system="""You are Hermes, sprint planner for PulseDesk (Laravel 11 + React 19 SaaS).
-Break the sprint goal into 3-5 small coding tasks. Return ONLY a JSON array, no extra text:
+        plan_json = call_llm(
+
+            system="""
+You are Hermes.
+
+Break the sprint goal into 3-5 coding tasks.
+
+Return ONLY valid JSON.
+
+Example:
+
 [
-  {
-    "id": 1,
-    "title": "Short task title",
-    "description": "Exact implementation details. Be specific about files, methods, DB columns.",
-    "files": ["app/Models/Organization.php", "database/migrations/xxx.php"]
-  }
+ {
+   "id":1,
+   "title":"Organization Model",
+   "description":"Create model and migration",
+   "files":[
+      "app/Models/Organization.php",
+      "database/migrations/xxxx.php"
+   ]
+ }
 ]
-Keep each task completable in under 30 min. Always remind: scope queries by organization_id from auth user.""",
-            user=f"Sprint goal: {text}"
+
+DO NOT write markdown.
+DO NOT explain.
+ONLY JSON.
+""",
+
+            user=text
+
         )
 
-        # strip markdown fences if model adds them
-        clean = plan_json.strip().lstrip("```json").lstrip("```").rstrip("```").strip()
+        clean = re.sub(
+            r"^```json\s*|^```\s*|\s*```$",
+            "",
+            plan_json.strip(),
+            flags=re.MULTILINE
+        ).strip()
+
+        print("------------ CLEAN OUTPUT ------------")
+        print(clean)
+        print("--------------------------------------")
+
         try:
+
             tasks = json.loads(clean)
+
             memory["tasks"] = tasks
+
             save_memory()
 
-            task_list = "\n".join([f"{i+1}. {t['title']}" for i, t in enumerate(tasks)])
+            task_list = "\n".join(
+                [
+                    f"{i+1}. {t['title']}"
+                    for i, t in enumerate(tasks)
+                ]
+            )
+
             client.chat_postMessage(
                 channel="#sprint-main",
-                text=f"✅ *Sprint Plan*\n\n{task_list}\n\nAssigning Task 1 to OpenClaw now →"
+                text=f"""✅ *Sprint Plan*
+
+{task_list}
+
+Assigning Task 1...
+"""
             )
+
             assign_next_task(client)
 
-        except json.JSONDecodeError:
+        except Exception as e:
+
+            print("JSON ERROR")
+            print(e)
+
+            print(clean)
+
             client.chat_postMessage(
                 channel="#sprint-main",
-                text=f"⚠️ Could not parse plan. Raw output:\n```{plan_json[:600]}```"
+                text=f"""⚠️ Parse Error
+
+{e}
+
+```{clean[:700]}```
+"""
             )
 
-    # ── OpenClaw posted DONE in #agent-log ───────────────
-    elif channel_name == "agent-log" and bot_id and "DONE" in text.upper():
-        print(f"[Hermes] 🔔 OpenClaw reported DONE. Moving to next task.")
+    # ------------------------------------------
+    # DONE
+    # ------------------------------------------
+
+    elif (
+        channel_name == "agent-log"
+        and bot_id
+        and "DONE" in text.upper()
+    ):
+
+        print("[Hermes] OpenClaw Finished")
+
         memory["current_task_index"] += 1
+
         save_memory()
+
         assign_next_task(client)
 
+
+# --------------------------------------------------
+
 if __name__ == "__main__":
-    print("🟢 Hermes online — listening on Socket Mode...")
-    SocketModeHandler(app, os.environ["SLACK_APP_TOKEN_HERMES"]).start()
+
+    print("🟢 Hermes Online")
+
+    SocketModeHandler(
+        app,
+        os.environ["SLACK_APP_TOKEN_HERMES"]
+    ).start()
