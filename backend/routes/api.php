@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types=1);
-
-use App\Http\Controllers\Api\TicketController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\CommentController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/user', fn (Request $request) => $request->user());
+    // Ticket Comments
+    Route::get('tickets/{ticket}/comments', [CommentController::class, 'index'])
+        ->name('tickets.comments.index');
 
-    Route::apiResource('tickets', TicketController::class);
+    Route::post('tickets/{ticket}/comments', [CommentController::class, 'store'])
+        ->name('tickets.comments.store');
 });
