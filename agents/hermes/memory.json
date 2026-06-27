@@ -1,37 +1,10 @@
 {
-  "sprint_goal": "Sprint 1 goal: Build the multi-tenant foundation for PulseDesk.\nproject root - E:\\forge2-pulsedesk-starter-kit\\forge2-Sh\n[1:22 PM] :white_check_mark: *Sprint Plan*\n\n1. Organization &amp; User Models with Migrations\n2. Auth API Endpoints (Register, Login, Logout)\n3. EnsureSameTenant Middleware\n4. Pest Feature Tests \u2014 Auth &amp; Cross-Tenant Isolation\n\nThese are the goals",
+  "sprint_goal": "*ask #1 \u2014 assigned to OpenClaw*\n\n*What to build:* Organization &amp; User Models with Migrations\n\n*Details:* Create Organization and User models, migrations, and relationships. Organization is the tenant root; User belongs to Organization. Add unique constraints on organization slug and user email per tenant. Include hasMany / belongsTo relations and fillable casts.\n\n*Files to touch:* app/Models/Organization.php, app/Models/User.php, database/migrations/2024_01_01_000001_create_organizations_table.php, database/migrations/2024_01_01_000002_create_users_table.php, database/factories/OrganizationFactory.php, database/factories/UserFactory.php\n\nWhen done, post to <#C0BDKRX9EM8> and include the word DONE.\n[1:39 PM] :clipboard: *Task #2 \u2014 assigned to OpenClaw*\n\n*What to build:* Auth API Endpoints (Register, Login, Logout)\n\n*Details:* Implement Sanctum-based auth controllers for register, login, logout. Registration creates Organization + User together. Issue plain-text token via Sanctum. Add routes under api/v1 and request validation classes.\n\n*Files to touch:* app/Http/Controllers/Api/V1/Auth/RegisterController.php, app/Http/Controllers/Api/V1/Auth/LoginController.php, app/Http/Controllers/Api/V1/Auth/LogoutController.php, app/Http/Requests/Auth/RegisterRequest.php, app/Http/Requests/Auth/LoginRequest.php, routes/api.php, config/sanctum.php\n\nWhen done, post to <#C0BDKRX9EM8> and include the word DONE.\n[1:40 PM] :clipboard: *Task #3 \u2014 assigned to OpenClaw*\n\n*What to build:* EnsureSameTenant Middleware\n\n*Details:* Create middleware that resolves the tenant from the authenticated user and guards against cross-tenant data access on tenant-scoped resources. Register it in Kernel and apply to tenant-scoped route group.\n\n*Files to touch:* app/Http/Middleware/EnsureSameTenant.php, app/Http/Kernel.php, app/Providers/RouteServiceProvider.php\n\nWhen done, post to <#C0BDKRX9EM8> and include the word DONE.\n[1:44 PM] :clipboard: *Task #4 \u2014 assigned to OpenClaw*\n\n*What to build:* API Controllers\n\n*Details:* Create RESTful controllers with CRUD methods for core resources\n\n*Files to touch:* app/Http/Controllers/OrganizationController.php, app/Http/Controllers/UserController.php, app/Http/Controllers/ProjectController.php\n\nWhen done, post to <#C0BDKRX9EM8> and include the word DONE.\n\n*Hermes*  [2:01 PM]\n:clipboard: *Task #4 \u2014 assigned to OpenClaw*\n\n*What to build:* API Endpoint Implementation\n\n*Details:* Continue from Task 3 - implement RESTful API endpoints for CRUD operations\n\n*Files to touch:* app/Http/Controllers/ApiController.php, routes/api.php\n\nWhen done, post to <#C0BDKRX9EM8> and include the word DONE.\n\n These are the taskk\ndelegarte them froomtaskk 3 to openclaw till project execution",
   "tasks": [
     {
       "id": 1,
-      "title": "Organization & User Models with Migrations",
-      "description": "Create Organization and User models, migrations, and relationships. Organization is the tenant root; User belongs to Organization. Add unique constraints on organization slug and user email per tenant. Include hasMany / belongsTo relations and fillable casts.",
-      "files": [
-        "app/Models/Organization.php",
-        "app/Models/User.php",
-        "database/migrations/2024_01_01_000001_create_organizations_table.php",
-        "database/migrations/2024_01_01_000002_create_users_table.php",
-        "database/factories/OrganizationFactory.php",
-        "database/factories/UserFactory.php"
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Auth API Endpoints (Register, Login, Logout)",
-      "description": "Implement Sanctum-based auth controllers for register, login, logout. Registration creates Organization + User together. Issue plain-text token via Sanctum. Add routes under api/v1 and request validation classes.",
-      "files": [
-        "app/Http/Controllers/Api/V1/Auth/RegisterController.php",
-        "app/Http/Controllers/Api/V1/Auth/LoginController.php",
-        "app/Http/Controllers/Api/V1/Auth/LogoutController.php",
-        "app/Http/Requests/Auth/RegisterRequest.php",
-        "app/Http/Requests/Auth/LoginRequest.php",
-        "routes/api.php",
-        "config/sanctum.php"
-      ]
-    },
-    {
-      "id": 3,
       "title": "EnsureSameTenant Middleware",
-      "description": "Create middleware that resolves the tenant from the authenticated user and guards against cross-tenant data access on tenant-scoped resources. Register it in Kernel and apply to tenant-scoped route group.",
+      "description": "Create middleware resolving tenant from authenticated user, block cross-tenant access, register in Kernel and RouteServiceProvider",
       "files": [
         "app/Http/Middleware/EnsureSameTenant.php",
         "app/Http/Kernel.php",
@@ -39,17 +12,42 @@
       ]
     },
     {
-      "id": 4,
-      "title": "Pest Feature Tests \u2014 Auth & Cross-Tenant Isolation",
-      "description": "Write Pest feature tests covering registration, login, logout, and cross-tenant isolation scenarios using RefreshDatabase and model factories. Assert users cannot access other organizations' resources.",
+      "id": 2,
+      "title": "Tenant-Scoped API Base Controller & Routes",
+      "description": "Create base ApiController with tenant-scoping traits and wire up protected route group with middleware applied",
       "files": [
-        "tests/Feature/Auth/RegisterTest.php",
-        "tests/Feature/Auth/LoginTest.php",
-        "tests/Feature/Auth/LogoutTest.php",
-        "tests/Feature/Tenant/CrossTenantIsolationTest.php",
-        "tests/TestCase.php"
+        "app/Http/Controllers/ApiController.php",
+        "routes/api.php"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Organization & User CRUD Controllers",
+      "description": "Implement OrganizationController and UserController with index/show/update/destroy, enforcing tenant isolation",
+      "files": [
+        "app/Http/Controllers/OrganizationController.php",
+        "app/Http/Controllers/UserController.php"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Project CRUD Controller & Resource Routes",
+      "description": "Implement ProjectController with full CRUD, register resource routes under tenant-scoped group",
+      "files": [
+        "app/Http/Controllers/ProjectController.php",
+        "routes/api.php"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Integration Tests & Execution Verification",
+      "description": "Write feature tests covering auth flow, tenant isolation, and CRUD endpoints; verify full pipeline end-to-end",
+      "files": [
+        "tests/Feature/AuthTest.php",
+        "tests/Feature/TenantIsolationTest.php",
+        "tests/Feature/ProjectCrudTest.php"
       ]
     }
   ],
-  "current_task_index": 1
+  "current_task_index": 0
 }

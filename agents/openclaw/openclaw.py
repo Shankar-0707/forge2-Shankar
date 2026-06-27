@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 
+processed_ts = set()
 load_dotenv()
 
 app = App(token=os.environ["SLACK_BOT_TOKEN_OPENCLAW"])
@@ -44,10 +45,10 @@ def parse_and_write_files(llm_output):
     matches = re.findall(pattern, llm_output, re.DOTALL)
     written = []
     for filepath, content in matches:
-        filepath = filepath.strip()
+        filepath = filepath.strip().strip("*`").strip()
         full_path = os.path.join(WORKING_DIR, filepath)
         os.makedirs(os.path.dirname(full_path), exist_ok=True)
-        with open(full_path, "w") as f:
+        with open(full_path, "w", encoding="utf-8") as f:
             f.write(content.strip() + "\n")
         written.append(filepath)
         print(f"[OpenClaw] 📝 Wrote: {filepath}")
