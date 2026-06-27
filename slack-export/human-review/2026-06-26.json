@@ -1,0 +1,25 @@
+[
+    {
+        "subtype": "channel_join",
+        "user": "U0BDDDQ5LKD",
+        "text": "<@U0BDDDQ5LKD> has joined the channel",
+        "type": "message",
+        "ts": "1782541152.485449"
+    },
+    {
+        "subtype": "channel_join",
+        "user": "U0BDGF43EBX",
+        "text": "<@U0BDGF43EBX> has joined the channel",
+        "inviter": "U0BDDDQ5LKD",
+        "type": "message",
+        "ts": "1782542090.012839"
+    },
+    {
+        "subtype": "channel_join",
+        "user": "U0BDDGXDZUK",
+        "text": "<@U0BDDGXDZUK> has joined the channel",
+        "inviter": "U0BDDDQ5LKD",
+        "type": "message",
+        "ts": "1782542095.823899"
+    }
+]

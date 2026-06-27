@@ -1,0 +1,7 @@
+[
+{"user_id":"U0BDDDQ5LKD","user_name":"cricshortslegend","date":1782541990,"change_type":"added","app_type":"OpenClaw","app_id":"A0BDDGMF58B"},
+{"user_id":"U0BDDDQ5LKD","user_name":"cricshortslegend","date":1782541989,"change_type":"added","app_type":"OpenClaw","app_id":"A0BDDGMF58B","scope":"identify,channels:read"},
+{"user_id":0,"user_name":"slack","date":1782541805,"change_type":"app_collaborator_added","app_type":"OpenClaw","app_id":"A0BDDGMF58B"},
+{"user_id":"U0BDDDQ5LKD","user_name":"cricshortslegend","date":1782541760,"change_type":"added","app_type":"Hermes","app_id":"A0BDKSE0882"},
+{"user_id":0,"user_name":"slack","date":1782541549,"change_type":"app_collaborator_added","app_type":"Hermes","app_id":"A0BDKSE0882"}
+]

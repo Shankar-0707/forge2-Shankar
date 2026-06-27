@@ -1,0 +1,1850 @@
+[
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782546889.762199",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Organization &amp; User Models with Migrations\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "qtei",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Organization & User Models with Migrations\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782547740.700079",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Organization &amp; User Models with Migrations\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "3=8",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Organization & User Models with Migrations\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782547807.240989",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Auth API Endpoints (Register, Login, Logout)\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "OrlzH",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Auth API Endpoints (Register, Login, Logout)\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782549704.602679",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: EnsureSameTenant Middleware\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "kav",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: EnsureSameTenant Middleware\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782549789.229809",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Tenant-Scoped API Base Controller &amp; Routes\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "isk6",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Tenant-Scoped API Base Controller & Routes\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782550174.373129",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Organization &amp; User CRUD Controllers\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "PPRA",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Organization & User CRUD Controllers\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782550292.639859",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Project CRUD Controller &amp; Resource Routes\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "M1Rs",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Project CRUD Controller & Resource Routes\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782550390.065779",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Integration Tests &amp; Execution Verification\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "=5ead",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Integration Tests & Execution Verification\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782551547.509299",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Ticket &amp; Comment Models with Migrations\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "O1df",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Ticket & Comment Models with Migrations\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782551707.523949",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Tickets API Controller with Filtering &amp; Search\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Gq3",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Tickets API Controller with Filtering & Search\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782551844.750389",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Comments API Controller with Role-Based Visibility\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "2FZ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Comments API Controller with Role-Based Visibility\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782551937.110069",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Database Seeder with Demo Data\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "t6p",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Database Seeder with Demo Data\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782552164.140819",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Integration Tests for Tickets, Comments &amp; Permissions\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "C2H\/o",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Integration Tests for Tickets, Comments & Permissions\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782553358.374529",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: SLA Policies &amp; Timers\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "pq5Hl",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: SLA Policies & Timers\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782553774.846319",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Activity Log \/ Audit Trail\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "lVqW",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Activity Log \/ Audit Trail\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782554124.191629",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Queues &amp; Assignment Endpoints\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "d2CH",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Queues & Assignment Endpoints\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782554398.321489",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Dashboard Metrics API\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "nRrFz",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Dashboard Metrics API\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782555218.167189",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Create Test Factories\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "2ont",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Create Test Factories\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782555307.273009",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: SLA Calculation Tests\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "7oo",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: SLA Calculation Tests\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782555400.357369",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Activity Log Tests\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Ez2w6",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Activity Log Tests\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782555582.878019",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Ticket Assignment and Filter Tests\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "ZBX",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Ticket Assignment and Filter Tests\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782555659.320499",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Dashboard Metrics Tests\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "pjvQ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Dashboard Metrics Tests\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782556131.793039",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Frontend Scaffold &amp; API Client\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "2Pq6",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Frontend Scaffold & API Client\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782556433.399769",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: React &amp; Tailwind Scaffold\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "OyWR",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: React & Tailwind Scaffold\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782556576.578539",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: API Client &amp; Auth UI\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "HMcy",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: API Client & Auth UI\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782556836.114359",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Tickets Dashboard\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "sra",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Tickets Dashboard\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782556977.752069",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Ticket Details &amp; Conversation UI\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "VLzn",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Ticket Details & Conversation UI\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557175.503019",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Ticket Actions &amp; Stats Panel\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "D31B",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Ticket Actions & Stats Panel\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557750.656909",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Create README.md\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "R6M2s",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Create README.md\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557843.800449",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Create ARCHITECTURE.md\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "7boaU",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Create ARCHITECTURE.md\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557875.538339",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Create agent-log.md\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "e\/Al",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Create agent-log.md\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557945.782279",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Create SUBMISSION.md\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "DHf",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Create SUBMISSION.md\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557991.823699",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":mag: *Release candidate ready for review*\nTask: Create SKILL.md\nPR: PR error: Not Found\n\nReview and merge when approved ✓",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "EDW4p",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "mag",
+                                "unicode": "1f50d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Release candidate ready for review",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nTask: Create SKILL.md\nPR: PR error: Not Found\n\nReview and merge when approved ✓"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

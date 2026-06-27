@@ -1,0 +1,89 @@
+[
+    {
+        "subtype": "channel_join",
+        "user": "U0BDDDQ5LKD",
+        "text": "<@U0BDDDQ5LKD> has joined the channel",
+        "type": "message",
+        "ts": "1782539309.849309"
+    },
+    {
+        "text": "",
+        "files": [
+            {
+                "id": "F0BDDDP7RJ7",
+                "created": 1782539312,
+                "timestamp": 1782539312,
+                "mimetype": "application\/vnd.slack-docs",
+                "filetype": "quip",
+                "pretty_type": "Canvas",
+                "user": "U0BDDDQ5LKD",
+                "user_team": "T0BDPD8FCQL",
+                "editable": true,
+                "size": 2362,
+                "mode": "quip",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "name": "____________",
+                "title": ":tada::heartpulse::stuck_out_tongue_winking_eye:",
+                "is_modified_by_ai": false,
+                "url_private": "https:\/\/files.slack.com\/files-pri\/T0BDPD8FCQL-F0BDDDP7RJ7\/canvas?token=xoxe-11465450522836-11462720059570-11454928251795-70c9898f82f9975d05aae6f498b263bd",
+                "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0BDPD8FCQL-F0BDDDP7RJ7\/download\/canvas?token=xoxe-11465450522836-11462720059570-11454928251795-70c9898f82f9975d05aae6f498b263bd",
+                "permalink": "https:\/\/multitennant-saas.slack.com\/docs\/T0BDPD8FCQL\/F0BDDDP7RJ7",
+                "permalink_public": "https:\/\/slack-files.com\/T0BDPD8FCQL-F0BDDDP7RJ7-d270a2fb70",
+                "url_static_preview": "https:\/\/multitennant-saas.slack.com\/docs\/T0BDPD8FCQL\/F0BDDDP7RJ7\/mobile",
+                "quip_thread_id": "BPD9AAaKAPR",
+                "updated": 1782546588,
+                "update_notification": 1782539315,
+                "canvas_readtime": 0.94339622641509,
+                "is_starred": false,
+                "skipped_shares": true,
+                "is_restricted_sharing_enabled": false,
+                "has_rich_preview": false,
+                "file_access": "visible",
+                "access": "owner",
+                "org_or_workspace_access": "none",
+                "title_blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "temp:C:BPDbf1a2cad0484538b7d11f1988",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "emoji",
+                                        "name": "tada",
+                                        "unicode": "1f389"
+                                    },
+                                    {
+                                        "type": "emoji",
+                                        "name": "heartpulse",
+                                        "unicode": "1f497"
+                                    },
+                                    {
+                                        "type": "emoji",
+                                        "name": "stuck_out_tongue_winking_eye",
+                                        "unicode": "1f61c"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "canvas_creator_id": "U0BDDDQ5LKD",
+                "team_pref_version_history_enabled": true,
+                "canvas_printing_enabled": true,
+                "is_ai_suggested": false
+            }
+        ],
+        "upload": false,
+        "user": "U0BDDDQ5LKD",
+        "display_as_bot": false,
+        "type": "message",
+        "ts": "1782539316.472799"
+    }
+]

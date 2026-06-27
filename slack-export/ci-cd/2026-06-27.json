@@ -1,0 +1,2312 @@
+[
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782546888.376839",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/krnzmp*\n```'php' is not recognized as an internal or external command,\noperable program or batch file.```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "deleted": false,
+            "name": "OpenClaw",
+            "updated": 1782541989,
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "50Wm",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/krnzmp",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "'php' is not recognized as an internal or external command,\noperable program or batch file."
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782547739.917649",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/fqbxvu*\n```'php' is not recognized as an internal or external command,\noperable program or batch file.```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "bhl9f",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/fqbxvu",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "'php' is not recognized as an internal or external command,\noperable program or batch file."
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782547806.467529",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/yczqyg*\n```'php' is not recognized as an internal or external command,\noperable program or batch file.```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "S=60C",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/yczqyg",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "'php' is not recognized as an internal or external command,\noperable program or batch file."
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782549703.832989",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/zfayzm*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "xr+",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/zfayzm",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782549788.422779",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/oegyzf*\n``` 19â–•         'status'  =&gt; 'ok',\n     20â–•         'service' =&gt; 'pulsedesk-api',\n     21â–•         'version' =&gt; app()-&gt;version(),\n     22â–•         'time'    =&gt; now()-&gt;toIso8601String(),\n\n  1   vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php:513\n      Illuminate\\Routing\\RouteFileRegistrar::register(\"E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\bootstrap\/..\/routes\/api.php\")\n\n  2   vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php:467\n      Illuminate\\Routing\\Router::loadRoutes(\"E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\bootstrap\/..\/routes\/api.php\")```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "e3Pl",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/oegyzf",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": " 19â–•         'status'  => 'ok',\n     20â–•         'service' => 'pulsedesk-api',\n     21â–•         'version' => app()->version(),\n     22â–•         'time'    => now()->toIso8601String(),\n\n  1   vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php:513\n      Illuminate\\Routing\\RouteFileRegistrar::register(\"E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\bootstrap\/..\/routes\/api.php\")\n\n  2   vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php:467\n      Illuminate\\Routing\\Router::loadRoutes(\"E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\bootstrap\/..\/routes\/api.php\")"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782550173.634589",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/kiefaa*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "ErX",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/kiefaa",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782550291.893529",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/slspxh*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "PwW",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/slspxh",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782550389.344239",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/osmqhe*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "J4DlX",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/osmqhe",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782551546.770299",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/vjfyer*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "QRM",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/vjfyer",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782551706.810049",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/pfygma*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Lt2",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/pfygma",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782551843.840909",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/vtakhn*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Cv6",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/vtakhn",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782551936.332939",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/zhbrpo*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "nLK1q",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/zhbrpo",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782552163.385469",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/nntxdl*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "6F5W",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/nntxdl",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782553356.695809",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/wghpft*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "BNIx",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/wghpft",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782553774.030669",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/ewivmz*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "rK=",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/ewivmz",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782554122.376849",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/ckomfc*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "8Cc",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/ckomfc",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782554397.183579",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/wzjuqr*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "I2T",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/wzjuqr",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782555214.864089",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/yknigb*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Rev",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/yknigb",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782555306.356569",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/zodnis*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "8EYI",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/zodnis",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782555399.632599",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/tnlvkb*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "p44",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/tnlvkb",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782555582.008189",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/mqxegv*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Xw+fV",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/mqxegv",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782555658.564419",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/vtlpty*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "zqU",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/vtlpty",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782556130.870739",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/udhrdw*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "nfRKS",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/udhrdw",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782556432.592649",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/nuklgl*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "FOicE",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/nuklgl",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782556575.793389",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/srikpx*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "tLSS",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/srikpx",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782556835.287509",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/wwtdag*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "BJKl",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/wwtdag",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782556976.930109",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/kskxop*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "0eK",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/kskxop",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557174.370649",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/lehsqh*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "uvHe",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/lehsqh",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557749.944649",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/movydk*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "F0PMm",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/movydk",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557842.999889",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/wnbrpc*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "0LKNb",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/wnbrpc",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557874.657929",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/ymsgwp*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "L0o0a",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/ymsgwp",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557945.063909",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/khmeun*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "qBi",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/khmeun",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDDGXDZUK",
+        "type": "message",
+        "ts": "1782557991.082979",
+        "bot_id": "B0BDKSZQSUA",
+        "app_id": "A0BDDGMF58B",
+        "text": ":wrench: *CI — openclaw\/ngcqwv*\n```estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder-&gt;build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application-&gt;buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application-&gt;run(Array)\n#8 {main}```\nPR: PR error: Not Found",
+        "team": "T0BDPD8FCQL",
+        "bot_profile": {
+            "id": "B0BDKSZQSUA",
+            "app_id": "A0BDDGMF58B",
+            "user_id": "U0BDDGXDZUK",
+            "name": "OpenClaw",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541989,
+            "team_id": "T0BDPD8FCQL"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "f6kz",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "wrench",
+                                "unicode": "1f527"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI — openclaw\/ngcqwv",
+                                "style": {
+                                    "bold": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "estSuiteCollection), '', '')\n#5 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(412): PHPUnit\\TextUI\\Configuration\\TestSuiteBuilder->build(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#6 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\src\\TextUI\\Application.php(182): PHPUnit\\TextUI\\Application->buildTestSuite(Object(PHPUnit\\TextUI\\Configuration\\Configuration))\n#7 E:\\forge2-pulsedesk-starter-kit\\forge2-Shankar\\backend\\vendor\\phpunit\\phpunit\\phpunit(104): PHPUnit\\TextUI\\Application->run(Array)\n#8 {main}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PR: PR error: Not Found"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
